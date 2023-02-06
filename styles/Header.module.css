@@ -1,0 +1,30 @@
+.header{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 20px 0;
+    backdrop-filter: blur(10px);
+    mix-blend-mode: difference;
+}
+
+.containerHeader, .navHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.navHeader a{
+    margin: 10px;
+    text-transform: uppercase;
+}
+
+.navHeader a:last-of-type{
+    margin-right: 0;
+}

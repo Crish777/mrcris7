@@ -1,0 +1,26 @@
+.bannerAnimated{
+    width: 105%;
+    margin-left: -2.5%;
+    padding: 70px;    
+    background-color: #333138;
+    transform: skew(10deg, 10deg);
+    margin-bottom: 170px;
+}
+
+.containerBanner{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill{
+    filter: grayscale(100%) contrast(200%) drop-shadow(0px 10px 10px black);
+    transform: scale(1);
+    transition: all .4s ease;
+}
+
+.skill:hover{
+    transform: scale(1.1);
+    filter: grayscale(0%) contrast(100%) drop-shadow(0px 0px 0px black);
+}

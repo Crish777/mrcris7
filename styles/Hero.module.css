@@ -1,0 +1,79 @@
+.heroSection{
+    height: calc(100vh - 80px);
+    overflow: initial;
+}
+
+.containerHero{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.principalHero{
+    font-size: 70px;
+}
+
+.principalHero span{
+    color: #FF312E;
+    font-weight: 700;
+}
+
+.atroposContainer{
+    width: 50%;
+    height: 70%;
+}
+
+.imgHero{
+    width: 50%;
+    height: 70%;    
+    position: relative;
+}
+
+.imgHeroInner{
+    background-image: url(/images/me.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 100%;
+    height: 100%;
+    -webkit-filter:  grayscale(100%) contrast(120%);
+    filter: grayscale(100%) contrast(120%);
+    -webkit-transition: all .3s ease;
+    transition: all .5s ease;
+    position: relative;
+}
+
+.imgHeroInner img{
+    position: relative !important;
+    width: 100%;
+    height: auto !important;
+}
+
+.imgHeroInner:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000103;
+    background: linear-gradient(0deg, #000103 0%, rgba(0,1,3,0) 100%);
+}
+
+.imgHeroInner:hover{
+    -webkit-filter: grayscale(70%) contrast(160%);
+    filter: grayscale(70%) contrast(160%);
+}
+
+.imgHero .beforeImg{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* background-color: #000; */
+}

@@ -1,0 +1,13 @@
+.sectionBlog{
+    padding: 100px 0 0;
+}
+
+.containerBlog{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: auto;
+    grid-template-rows: auto;
+    grid-gap: 5%;
+    margin-bottom: 100px;
+    min-height: calc(100vh - 370px);
+}

@@ -1,0 +1,42 @@
+.aboutSection{
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.aboutContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aboutTitle{
+    font-size: 100px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.aboutText{
+    width: 48%;
+}
+.infoAbout{
+    line-height: 1.4;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.aboutImg{
+    width: 48%;
+    height: 65vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.innerImg{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    background-image: url(/images/developer.jpg);
+}

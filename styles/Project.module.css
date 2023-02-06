@@ -1,0 +1,155 @@
+.work{
+    width: 40%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin-bottom: 80px;
+    margin-top: 50PX;
+}
+
+.backgroundSolid{    
+    position: relative;
+    background-color: #515052;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 170px 0 47px;
+    border-radius: 10px;
+}
+
+ .backgroundSolid:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-image: url(/images/prototype-1.gif);
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+.showgif .backgroundSolid:before{
+    opacity: 1;
+}
+
+.infoProject{
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 4;
+    pointer-events: all;
+    opacity: 0;
+    transition: all .5s ease-in-out, opacity .3s ease-in-out .0s;
+}
+
+.showgif .infoProject{
+    opacity: 1;
+    transition: all .5s ease-in-out, opacity .5s ease-in-out .35s;
+}
+
+.projectName{
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.descProject{
+    margin: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    
+}
+
+.buttonProject{
+    padding: 15px 30px;
+    text-transform: uppercase;
+    background-color: #FF312E;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #FFFFFA;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 200px;
+    margin-left: -75px;
+    display: block;
+    font-weight: bold;
+}
+
+.buttonProject:after{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 25px;
+    background-color: #FF312E;
+}
+
+.buttonProject:before{
+    content: '';
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 25px;
+    background-color: #FF312E;
+    border-radius: 50%;
+}
+
+.containerImage{
+    position: relative;
+    transition: all .5s ease-in-out;
+    opacity: 1;
+}
+
+.showgif .containerImage{
+    opacity: 0;
+}
+
+.pcImage{
+    width: 60%;
+    aspect-ratio: 16/9;
+    margin: -150px -25px 0;
+    z-index: 0;
+    order: 1;
+}
+.phoneImage{
+    width: 15%;
+    aspect-ratio: 9/16;
+    z-index: 1;
+    order: 2;
+}
+.tabletImage{
+    width: 25%;
+    aspect-ratio: 3/4;
+    z-index: 1;
+    order: 0;
+}
+
+.tabletHImage .tabletImage{
+    aspect-ratio: 16/12;
+    width: 30%;
+}
+
+
+@keyframes bgEnter {
+    0% {
+        -webkit-transform: translateY(0) skewY(8deg);
+        transform: translateY(0) skewY(8deg)
+    }
+    to {
+        -webkit-transform: translateY(100%) skewY(8deg);
+        transform: translateY(100%) skewY(8deg)
+    }
+}
