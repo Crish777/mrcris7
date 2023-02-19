@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import Image from "next/image";
-import styles from "../styles/BlogCard.module.css";
-import Atropos from "atropos";
-import "atropos/css";
-import Link from "next/link";
+import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import styles from '../styles/BlogCard.module.css';
+import Atropos from 'atropos';
+import 'atropos/css';
+import Link from 'next/link';
 
 const BlogCard = ({ amaticsc, data }) => {
   const atroposEl = useRef(null);
@@ -25,7 +25,7 @@ const BlogCard = ({ amaticsc, data }) => {
               <div className={styles.imgBlog} data-atropos-offset="1">
                 <Image
                   fill
-                  src={data.image.formats.large.url}
+                  src={data.attributes.image.data.attributes.formats.large.url}
                   alt=""
                   priority
                   sizes="(max-width: 768px) 100vw,
@@ -36,12 +36,11 @@ const BlogCard = ({ amaticsc, data }) => {
               <div className={styles.infoBlog}>
                 <h2
                   className={`${amaticsc.className} ${styles.blogName}`}
-                  data-atropos-offset="-1"
-                >
-                  {data.title}
+                  data-atropos-offset="-1">
+                  {data.attributes.title}
                 </h2>
                 <p className={styles.resume} data-atropos-offset="-3">
-                  {data.summary}
+                  {data.attributes.summary}
                 </p>
               </div>
             </div>

@@ -39,3 +39,21 @@
     flex-wrap: wrap;    
 }
 
+
+@media only screen and (max-width: 1300px){
+    .infoWorkTitle{
+        font-size: 80px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .infoWorkTitle{
+        font-size: 60px;
+    }
+}
+
+@media only screen and (max-width: 560px){
+    .infoWorkTitle{
+        font-size: 40px;
+    }
+}

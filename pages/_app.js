@@ -1,16 +1,15 @@
-import { Rasa } from "@next/font/google";
-import Layout from "../components/Layout";
+import { Rasa } from '@next/font/google';
 import { LocomotiveScrollProvider as RLSProvider } from 'react-locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
-import "../styles/globals.css";
-import { useRef } from "react";
-import { useRouter } from "next/router";
-import Header from "../components/Header";
-import { Audiowide } from "@next/font/google";
+import '../styles/globals.css';
+import { useRef } from 'react';
+import { useRouter } from 'next/router';
+import Header from '../components/Header';
+import { Audiowide } from '@next/font/google';
 
-const audiowide = Audiowide({ weight: '400', subsets: ["latin"] });
+const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
-const rasa = Rasa({ weight: "400", subsets: ["latin"] });
+const rasa = Rasa({ weight: '400', subsets: ['latin'] });
 
 export default function App({ Component, pageProps }) {
   const { asPath } = useRouter(); // With next/router
@@ -20,7 +19,17 @@ export default function App({ Component, pageProps }) {
       options={{
         smooth: true,
         smoothMobile: false,
-        resetNativeScroll: true
+        resetNativeScroll: true,
+        lerp: 0.05,
+        multiplier: 2,
+        firefoxMultiplier: 2,
+        touchMultiplier: 0.1,
+        smartPhone: {
+          smooth: false,
+        },
+        tablet: {
+          smooth: false,
+        },
         // ... all available Locomotive Scroll instance options
       }}
       watch={
@@ -31,19 +40,19 @@ export default function App({ Component, pageProps }) {
         ]
       }
       location={asPath}
-      onLocationChange={(scroll) => scroll.scrollTo(0, { duration: 0, disableLerp: true })}
-      containerRef={containerRef}
-    >
+      onLocationChange={(scroll) =>
+        scroll.scrollTo(0, { duration: 0, disableLerp: true })
+      }
+      containerRef={containerRef}>
       <main
-        className={`${rasa.className} ${"container"}`}
+        className={`${rasa.className} ${'container'}`}
         data-scroll-container
-        ref={containerRef}
-      >
-        <Header audiowide={audiowide}/>
+        ref={containerRef}>
+        <Header audiowide={audiowide} />
         {/* <div data-scroll-section> */}
-          {/* <Layout> */}
-            <Component {...pageProps} />
-          {/* </Layout> */}
+        {/* <Layout> */}
+        <Component {...pageProps} />
+        {/* </Layout> */}
         {/* </div> */}
       </main>
     </RLSProvider>

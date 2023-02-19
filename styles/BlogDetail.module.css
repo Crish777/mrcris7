@@ -77,3 +77,35 @@
 .contentBlog p >div{
     margin: 20px 0;
 }
+
+
+@media only screen and (max-width: 1400px){
+    .titleBlog{
+        font-size: 40px;
+    }
+    
+    .contentBlog{
+        padding: 50px 0 0;
+    }
+
+    .contentBlog h2{
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 1024px){
+    .titleBlog{
+        font-size: 30px;
+    }
+
+    .contentBlog{
+        font-size: 18px;
+    }
+
+    .contentBlog h2{
+        font-size: 25px;
+    }
+
+    .contentBlog img{
+        width: 95%;
+    }
+}

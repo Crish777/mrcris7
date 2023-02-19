@@ -1,30 +1,131 @@
-.header{
-    width: 100%;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    padding: 20px 0;
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 20px 0;
+  backdrop-filter: blur(10px);
+  mix-blend-mode: difference;
+  transition: all .5s linear;
+}
+
+.containerHeader,
+.navHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.navHeader a {
+  margin: 10px;
+  text-transform: uppercase;
+}
+
+.navHeader a:last-of-type {
+  margin-right: 0;
+}
+
+.menuButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 13%;
+  color: white;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 0.5em;
+  background: #000013;
+  border: 1px solid #000013;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #000013, -6px -6px 12px #000013;
+}
+
+.menuButton:hover {
+  border: 1px solid 000013;
+}
+
+.menuButton:active {
+  color: #000013;
+  box-shadow: inset 4px 4px 12px #000013, inset -4px -4px 12px #000013;
+}
+
+.inputBurger {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+  outline: none !important;
+}
+
+.inputBurger:focus {
+  outline: none !important;
+}
+
+.menuButton span {
+  width: 30px;
+  height: 4px;
+  background: #fffffa;
+  border-radius: 100px;
+  transition: 0.3s ease;
+}
+
+.inputBurger[type]:checked ~ span.top {
+  transform: translateY(290%) rotate(45deg);
+  width: 40px;
+}
+
+.inputBurger[type]:checked ~ span.bot {
+  transform: translateY(-270%) rotate(-45deg);
+  width: 40px;
+  box-shadow: 0 0 10px #fffffa;
+}
+
+.inputBurger[type]:checked ~ span.mid {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+.burgerButton {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .header.active {
+    padding-bottom: 35px;
+  }
+  .navHeader a {
+    position: absolute;
+    top: 100%;
+    width: 50%;
+    text-align: center;
     backdrop-filter: blur(10px);
     mix-blend-mode: difference;
-}
+    margin: 0;
+    padding: 0px 0;
+    overflow: hidden;
+    max-height: 0px;
+    transition: all .5s linear;
+  }
 
-.containerHeader, .navHeader{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+  .navHeader a:first-of-type {
+    left: 0;
+  }
+  .navHeader a:last-of-type {
+    right: 0;
+  }
 
-.logo{
-    font-size: 40px;
-    text-transform: uppercase;
-}
+  .header.active .navHeader a{
+    max-height: 36px;
+    padding: 10px 0;
+  }
 
-.navHeader a{
-    margin: 10px;
-    text-transform: uppercase;
-}
-
-.navHeader a:last-of-type{
-    margin-right: 0;
+  .burgerButton {
+    display: block;
+  }
 }

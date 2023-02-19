@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import styles from "../styles/About.module.css";
+import React, { useEffect, useRef } from 'react';
+import styles from '../styles/About.module.css';
 
-import Ukiyo from "ukiyojs";
+import Ukiyo from 'ukiyojs';
 
 const About = ({ audiowide }) => {
   const ukiyo = useRef(null);
@@ -13,8 +13,8 @@ const About = ({ audiowide }) => {
     };
     const createyUkiyo = () => {
       instance = new Ukiyo(ukiyo.current, {
-        scale: 1.5, // 1~2 is recommended
-        speed: 1.5, // 1~2 is recommended
+        scale: 1.5,
+        speed: 1.5,
         willChange: true,
         externalRAF: false,
       });
@@ -28,17 +28,14 @@ const About = ({ audiowide }) => {
           className={`${styles.aboutTitle} ${audiowide.className}`}
           data-scroll
           data-scroll-direction="horizontal"
-          data-scroll-speed={-1}
-        >
+          data-scroll-speed={-1}>
           Sobre Mi
         </h2>
         <div
           className={styles.aboutImg}
           data-scroll
           data-scroll-direction="vertical"
-          data-scroll-speed={3}
-        >
-          {/* <Image alt="" title="" src="/images/developer.jpg" sizes=" 50%" fill /> */}
+          data-scroll-speed={3}>
           <div className={styles.innerImg} ref={ukiyo}></div>
         </div>
         <div className={styles.aboutText}>
@@ -46,8 +43,7 @@ const About = ({ audiowide }) => {
             className={styles.infoAbout}
             data-scroll
             data-scroll-direction="horizontal"
-            data-scroll-speed="-1"
-          >
+            data-scroll-speed="-1">
             Comencé mi camino en el mundo digital aprendiendo sobre marketing,
             pero fue durante mis estudios de marketing cuando descubrí mi
             verdadera pasión: la creación de sitios web. Decidí profundizar en
@@ -66,9 +62,13 @@ const About = ({ audiowide }) => {
             className={styles.infoAbout}
             data-scroll
             data-scroll-direction="horizontal"
-            data-scroll-speed="1"
-          >
-            Además de mi pasión por el desarrollo web, también ofrezco mis servicios a aquellos que buscan crear o mejorar su presencia en línea. Me encanta ayudar a las empresas a alcanzar sus objetivos a través de la creación de sitios web atractivos y funcionales. Si estás buscando un desarrollador web confiable y apasionado, no dudes en contactarte conmigo.
+            data-scroll-speed="1">
+            Además de mi pasión por el desarrollo web, también ofrezco mis
+            servicios a aquellos que buscan crear o mejorar su presencia en
+            línea. Me encanta ayudar a las empresas a alcanzar sus objetivos a
+            través de la creación de sitios web atractivos y funcionales. Si
+            estás buscando un desarrollador web confiable y apasionado, no dudes
+            en contactarte conmigo.
           </p>
         </div>
       </div>

@@ -153,3 +153,16 @@
         transform: translateY(100%) skewY(8deg)
     }
 }
+
+@media only screen and (max-width: 768px){
+    .work{
+        width: 48%;
+    }
+}
+
+@media only screen and (max-width: 560px){
+
+    .work{
+        width: 98%;
+    }
+}
