@@ -25,8 +25,6 @@ export const Contact = ({ audiowide, setLoader, setThanksView }) => {
         )
         .then(
           (result) => {
-            console.log(result);
-            console.log(result.text);
             textarea.current.value = '';
             phone.current.value = '';
             email.current.value = '';

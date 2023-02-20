@@ -15,9 +15,9 @@ const Blog = ({ blogs }) => {
         className={`${styles.sectionBlog} sectionPage`}
         data-scroll-section>
         <div className={`container ${styles.containerBlog}`}>
-          {blogs.map((blog) => (
+          {/* {blogs.map((blog) => (
             <BlogCard key={blog.id} amaticsc={amaticsc} data={blog} />
-          ))}
+          ))} */}
         </div>
         <Footer audiowide={audiowide} />
       </section>
