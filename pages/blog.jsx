@@ -8,7 +8,6 @@ const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const amaticsc = Amatic_SC({ weight: ['400', '700'], subsets: ['latin'] });
 
 const Blog = ({ blogs }) => {
-  console.log(blogs)
   return (
     <>
       <section
