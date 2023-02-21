@@ -57,10 +57,13 @@ export const Contact = ({ audiowide, setLoader, setThanksView }) => {
       });
     };
     createyUkiyo();
-  }, [])
+  }, []);
   return (
-    <section className={styles['contact-section']} >
-      <div className={styles.bgImage} style={{'backgroundImage': 'url(/images/city.jpg)'}} ref={section}></div>
+    <section className={styles['contact-section']}>
+      <div
+        className={styles.bgImage}
+        style={{ 'backgroundImage': 'url(/images/city.jpg)' }}
+        ref={section}></div>
       <div className={`container ${styles['container-contact']}`}>
         <h2
           className={`${audiowide.className} ${styles['title-contact']}`}

@@ -37,11 +37,11 @@
   opacity: 1;
 }
 
-.gifContainer img{
+.gifContainer img {
   object-fit: cover;
 }
 
-.gifContainer::before{
+.gifContainer::before {
   content: '';
   position: absolute;
   top: 0;
@@ -171,7 +171,7 @@
     width: 48%;
   }
 
-  .projectName{
+  .projectName {
     font-size: 35px;
   }
 }
@@ -180,7 +180,7 @@
   .work {
     width: 98%;
   }
-  .projectName{
+  .projectName {
     font-size: 30px;
   }
 }

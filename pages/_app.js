@@ -6,7 +6,6 @@ import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import { Audiowide } from '@next/font/google';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
@@ -45,29 +44,6 @@ export default function App({ Component, pageProps }) {
         scroll.scrollTo(0, { duration: 0, disableLerp: true })
       }
       containerRef={containerRef}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          className="base-page-size"
-          key={asPath.route}
-          initial="initialState"
-          animate="animateState"
-          exit="exitState"
-          transition={{
-            duration: 0.75,
-          }}
-          variantes={{
-            initialState: {
-              opacity: 0,
-              clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-            },
-            animateState: {
-              opacity: 1,
-              clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-            },
-            exitState: {
-              clipPath: 'polygon(50% 0, 50% 0, 50% 100%, 50% 100%)',
-            },
-          }}>
           <main
             className={`${rasa.className} ${'container'}`}
             data-scroll-container
@@ -79,8 +55,6 @@ export default function App({ Component, pageProps }) {
             {/* </Layout> */}
             {/* </div> */}
           </main>
-        </motion.div>
-      </AnimatePresence>
     </RLSProvider>
   );
 }

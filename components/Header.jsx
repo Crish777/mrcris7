@@ -12,7 +12,9 @@ const Header = ({ audiowide }) => {
     <header className={styles.header} ref={header}>
       <div className={`${styles.containerHeader} container`}>
         <Link href="/">
-          <div className={`${styles.logo} ${audiowide.className}`}><Image fill  alt='Site logo' src='/images/logo-light.webp' /></div>
+          <div className={`${styles.logo} ${audiowide.className}`}>
+            <Image fill alt="Site logo" src="/images/logo-light.webp" />
+          </div>
         </Link>
         <nav className={`${styles.navHeader} ${audiowide.className}`}>
           {/* <a href="#briefcase" data-scroll-to>Work</a>
