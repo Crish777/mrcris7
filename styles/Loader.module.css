@@ -1,99 +1,102 @@
-.loaderWrapper{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    z-index: 10;
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    transition: 1s cubic-bezier(.858,.01,.068,.99), opacity 0s ease-in-out 0s;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.loaderWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 10;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  transition: 1s cubic-bezier(0.858, 0.01, 0.068, 0.99),
+    opacity 0s ease-in-out 0s;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.loaderWrapper.hide{
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transform: translateX(105%);
-    transform: translateX(105%);    
-    transition: 1s cubic-bezier(.858,.01,.068,.99) 1s, opacity .5s ease-in-out 1.7s;;
+.loaderWrapper.hide {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateX(105%);
+  transform: translateX(105%);
+  transition: 1s cubic-bezier(0.858, 0.01, 0.068, 0.99) 1s,
+    opacity 0.5s ease-in-out 1.7s;
 }
 
 @keyframes rotate {
-	0% {
-		transform: rotate(0deg);
-	}
-	50% {
-		transform: rotate(180deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.activeThanks .loader{
-    display: none;
+.activeThanks .loader {
+  display: none;
 }
 
 .loader {
-	position: relative;
-	margin: 75px auto;
-	width: 150px;
-	height: 150px;
-	display: block;
-	overflow: hidden;
-    opacity: 1;
-    transition: all .5s linear 0s;
+  position: relative;
+  margin: 75px auto;
+  width: 150px;
+  height: 150px;
+  display: block;
+  overflow: hidden;
+  opacity: 1;
+  transition: all 0.5s linear 0s;
 }
 
-.hide .loader{
-    opacity: 0;
+.hide .loader {
+  opacity: 0;
 }
 .loader div {
-    height: 100%;
-    border-radius: 50%;
-	padding: 8px;
-	border: 2px solid transparent;
-	animation: rotate linear 3.5s infinite;
+  height: 100%;
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px solid transparent;
+  animation: rotate linear 3.5s infinite;
 }
 
-.loader1, .loader1 div {
-	border-top-color: #ff312e;
-	border-bottom-color: #fffffa;
+.loader1,
+.loader1 div {
+  border-top-color: #ff312e;
+  border-bottom-color: #fffffa;
 }
 
-.thanksContainer{
-    opacity: 0;
-    visibility: hidden;
-    max-width: 0%;
-    text-align: center;
-    transition: all .5s ease-in-out;
+.thanksContainer {
+  opacity: 0;
+  visibility: hidden;
+  max-width: 0%;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
 }
 
-.activeThanks .thanksContainer{
-    opacity: 1;
-    visibility: visible;
-    max-width: 50%;
-    font-size: 100px;
+.activeThanks .thanksContainer {
+  opacity: 1;
+  visibility: visible;
+  max-width: 50%;
+  font-size: 100px;
 }
 
 @media only screen and (max-width: 1300px) {
-    .activeThanks .thanksContainer{
-        font-size: 80px;
-    }
+  .activeThanks .thanksContainer {
+    font-size: 80px;
+  }
 }
 @media only screen and (max-width: 1024px) {
-    .activeThanks .thanksContainer{
-        font-size: 60px;
-    }
+  .activeThanks .thanksContainer {
+    font-size: 60px;
+  }
 }
 @media only screen and (max-width: 768px) {
-    .activeThanks .thanksContainer{
-        max-width: 80%;
-        font-size: 45px;
-    }
+  .activeThanks .thanksContainer {
+    max-width: 80%;
+    font-size: 45px;
+  }
 }

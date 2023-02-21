@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from '../styles/Contact.module.css';
+import Ukiyo from 'ukiyojs';
 
 export const Contact = ({ audiowide, setLoader, setThanksView }) => {
+  const section = useRef(null);
   const form = useRef(null);
   const name = useRef(null);
   const phone = useRef(null);
@@ -39,8 +41,26 @@ export const Contact = ({ audiowide, setLoader, setThanksView }) => {
         );
     }, 1000);
   };
+
+  useEffect(() => {
+    let instance;
+
+    const destroyUkiyo = () => {
+      instance.destroy();
+    };
+    const createyUkiyo = () => {
+      instance = new Ukiyo(section.current, {
+        scale: 1.5,
+        speed: 1.5,
+        willChange: true,
+        externalRAF: false,
+      });
+    };
+    createyUkiyo();
+  }, [])
   return (
-    <section className={styles['contact-section']}>
+    <section className={styles['contact-section']} >
+      <div className={styles.bgImage} style={{'backgroundImage': 'url(/images/city.jpg)'}} ref={section}></div>
       <div className={`container ${styles['container-contact']}`}>
         <h2
           className={`${audiowide.className} ${styles['title-contact']}`}

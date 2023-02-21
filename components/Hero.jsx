@@ -29,8 +29,7 @@ const Hero = ({ amaticsc }) => {
           data-scroll-direction="vertical"
           data-scroll-speed="-3">
           <div className={styles.beforeImg}></div>
-          <div className={styles.imgHeroInner}>
-          </div>
+          <div className={styles.imgHeroInner}></div>
         </div>
       </div>
     </section>

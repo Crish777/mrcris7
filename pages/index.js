@@ -17,8 +17,6 @@ export default function Home({ projects }) {
   const [loader, setLoader] = useState(true);
   const [thanksView, setThanksView] = useState(false);
 
-
-
   useEffect(() => {
     if (projects) {
       setTimeout(() => {
@@ -27,13 +25,14 @@ export default function Home({ projects }) {
     }
   }, []);
 
+
   return (
     <>
       <Head>
-        <title>MrCris7</title>
+        <title>Home | MrCris</title>
         <meta name="description" content="Desarrollador frontend creativo" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/favicon-red.webp" />
       </Head>
       <Loader active={loader ? 'show' : 'hide'} thanks={thanksView} />
       <div data-scroll-section>
@@ -54,7 +53,7 @@ export default function Home({ projects }) {
 
 export async function getServerSideProps() {
   try {
-    const url = `${process.env.STRAPI_URL}/allprojects?populate=images`;
+    const url = `${process.env.STRAPI_URL}/allprojects?populate=*`;
     const response = await fetch(url);
     const projects = await response.json();
 

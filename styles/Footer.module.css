@@ -1,20 +1,20 @@
-.footerSection{
-    background-color: #333138;
-    padding: 25px 10px;
-    text-align: center;
+.footerSection {
+  background-color: #333138;
+  padding: 25px 10px;
+  text-align: center;
 }
 
-.copyright{
-    font-size: 18px;
-    color: #fffffa;
+.copyright {
+  font-size: 18px;
+  color: #fffffa;
 }
 
-.copyright span{
-    color: #ff312e;
+.copyright span {
+  color: #ff312e;
 }
 
-.terms.terms{
-    display: block;
-    margin-top: 5px;
-    color: #fffffa;
+.terms.terms {
+  display: block;
+  margin-top: 5px;
+  color: #fffffa;
 }

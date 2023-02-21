@@ -4,7 +4,7 @@ import Atropos from 'atropos';
 import styles from '../styles/Project.module.css';
 import 'atropos/css';
 
-const Project = ({ data, audiowide }) => {
+const Project = ({ data, id,  audiowide }) => {
   const [gif, setGif] = useState(false);
   const [speed, setSpeed] = useState(
     Math.floor(Math.random() * (2 - -1 + 1) + -1)
@@ -19,6 +19,7 @@ const Project = ({ data, audiowide }) => {
       highlight: false,
     });
   }, []);
+  console.log(data.gif.data.attributes.url);
   return (
     <div
       className={`${styles.work} atropos ${gif ? styles.showgif : ''}`}
@@ -32,6 +33,9 @@ const Project = ({ data, audiowide }) => {
         <div className="atropos-rotate">
           <div className="atropos-inner">
             <div className={styles.backgroundSolid}>
+              <div className={styles.gifContainer} >
+                <Image fill alt='' src={data.gif.data.attributes.url}/>
+              </div>
               <div className={styles.infoProject}>
                 <h3
                   className={`${styles.projectName} ${audiowide.className}`}

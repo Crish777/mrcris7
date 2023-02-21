@@ -121,7 +121,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -132,9 +132,9 @@ table {
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -219,7 +219,7 @@ body {
   color: rgb(var(--foreground-rgb));
   background: #000;
   /* padding-top: 80px; */
-  color: #FFFFFA;
+  color: #fffffa;
 }
 
 a {
@@ -240,20 +240,20 @@ a {
   max-width: 1400px;
 }
 
-main.container{
+main.container {
   max-width: 100%;
   width: 100%;
 }
 
-.c-scrollbar_thumb{
-  background-color: #FF312E;
+.c-scrollbar_thumb {
+  background-color: #ff312e;
 }
 
-.atropos-inner{
+.atropos-inner {
   overflow: initial !important;
 }
 
-.atropos-highlight{
+.atropos-highlight {
   /* background: #000; */
   background-image: none !important;
 }
