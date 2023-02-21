@@ -18,7 +18,7 @@ const DetailBlog = ({ blog }) => {
         setLoader(false);
       }, 2000);
     }
-    const images = document.querySelectorAll('img');
+    const images = document.querySelectorAll('.sectionPage img');
     new Ukiyo(images, {
       scale: 1.5,
       speed: 2,

@@ -42,22 +42,6 @@ export const Contact = ({ audiowide, setLoader, setThanksView }) => {
     }, 1000);
   };
 
-  useEffect(() => {
-    let instance;
-
-    const destroyUkiyo = () => {
-      instance.destroy();
-    };
-    const createyUkiyo = () => {
-      instance = new Ukiyo(section.current, {
-        scale: 1.5,
-        speed: 1.5,
-        willChange: true,
-        externalRAF: false,
-      });
-    };
-    createyUkiyo();
-  }, []);
   return (
     <section className={styles['contact-section']}>
       <div

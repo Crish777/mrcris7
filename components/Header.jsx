@@ -13,7 +13,14 @@ const Header = ({ audiowide }) => {
       <div className={`${styles.containerHeader} container`}>
         <Link href="/">
           <div className={`${styles.logo} ${audiowide.className}`}>
-            <Image fill alt="Site logo" src="/images/logo-light.webp" />
+            <Image
+              fill
+              alt="Site logo"
+              src="/images/logo-light.webp"
+              sizes="(max-width: 768px) 100%,
+              (max-width: 1200px) 100%,
+              100%"
+            />
           </div>
         </Link>
         <nav className={`${styles.navHeader} ${audiowide.className}`}>

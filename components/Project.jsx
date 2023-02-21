@@ -11,13 +11,17 @@ const Project = ({ data, id, audiowide }) => {
   );
   const atroposEl = useRef(null);
   useEffect(() => {
-    const myAtropos = Atropos({
-      el: atroposEl.current,
-      shadow: false,
-      shadowScale: 0,
-      shadowOffset: 0,
-      highlight: false,
-    });
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth > 1024) {
+        const myAtropos = Atropos({
+          el: atroposEl.current,
+          shadow: false,
+          shadowScale: 0,
+          shadowOffset: 0,
+          highlight: false,
+        });
+      }
+    }
   }, []);
   return (
     <div

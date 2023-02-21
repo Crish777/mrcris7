@@ -44,17 +44,17 @@ export default function App({ Component, pageProps }) {
         scroll.scrollTo(0, { duration: 0, disableLerp: true })
       }
       containerRef={containerRef}>
-          <main
-            className={`${rasa.className} ${'container'}`}
-            data-scroll-container
-            ref={containerRef}>
-            <Header audiowide={audiowide} />
-            {/* <div data-scroll-section> */}
-            {/* <Layout> */}
-            <Component {...pageProps} />
-            {/* </Layout> */}
-            {/* </div> */}
-          </main>
+      <main
+        className={`${rasa.className} ${'container'}`}
+        data-scroll-container
+        ref={containerRef}>
+        <Header audiowide={audiowide} />
+        {/* <div data-scroll-section> */}
+        {/* <Layout> */}
+        <Component {...pageProps} />
+        {/* </Layout> */}
+        {/* </div> */}
+      </main>
     </RLSProvider>
   );
 }
