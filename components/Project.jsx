@@ -9,6 +9,7 @@ const Project = ({ data, id, audiowide }) => {
   const [speed, setSpeed] = useState(
     Math.floor(Math.random() * (2 - -1 + 1) + -1)
   );
+  
   const atroposEl = useRef(null);
   useEffect(() => {
     if (typeof window !== 'undefined') {

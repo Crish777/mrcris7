@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const amaticsc = Amatic_SC({ weight: ['400', '700'], subsets: ['latin'] });
 
-export default function Home({ projects }) {
+export default function Home({ projects, isError }) {
   const [loader, setLoader] = useState(true);
   const [thanksView, setThanksView] = useState(false);
 
@@ -24,6 +24,9 @@ export default function Home({ projects }) {
       }, 2000);
     }
   }, []);
+  if (isError) {
+    return <div></div>;
+  }
 
   return (
     <>
