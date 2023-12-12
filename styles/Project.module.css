@@ -126,6 +126,11 @@
   opacity: 1;
 }
 
+.containerImage img {
+  position: relative !important;
+  height: auto !important;
+}
+
 .showgif .containerImage {
   opacity: 0;
 }

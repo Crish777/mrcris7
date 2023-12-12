@@ -18,8 +18,7 @@ const Hero = ({ amaticsc }) => {
             data-scroll
             data-scroll-direction="vertical"
             data-scroll-speed="2">
-            <span>Cristhian Herrera</span> <span>desarrollador frontend</span>{' '}
-            creativo
+            <span>Cristhian Herrera</span> <span>desarrollador frontend</span>
           </h1>
         </div>
 
