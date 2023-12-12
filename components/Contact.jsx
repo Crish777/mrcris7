@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from '../styles/Contact.module.css';
-import Ukiyo from 'ukiyojs';
+// import Ukiyo from 'ukiyojs';
 
 export const Contact = ({ audiowide, setLoader, setThanksView }) => {
   const section = useRef(null);
