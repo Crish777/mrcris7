@@ -20,7 +20,7 @@ export const Contact = ({ audiowide, setLoader, setThanksView }) => {
       textarea.current.value = `-------Nombre: ${name.current.value} --------Mensaje: ${textarea.current.value} ----Teléfono: ${phone.current.value} ----- Email: ${email.current.value}----`;
       emailjs
         .sendForm(
-          'service_r7uatoq',
+          'service_7cf0vnn',
           'template_iizcgft',
           form.current,
           'Pu_NKH-w4e0Ya29xz'
