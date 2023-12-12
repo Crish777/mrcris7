@@ -23,9 +23,9 @@ const Header = ({ audiowide }) => {
             />
           </div>
         </Link>
-        <nav className={`${styles.navHeader} ${audiowide.className}`}>
-          {/* <a href="#briefcase" data-scroll-to>Work</a>
-          <a href="#about" data-scroll-to>About me</a> */}
+        {/* <nav className={`${styles.navHeader} ${audiowide.className}`}>
+          <a href="#briefcase" data-scroll-to>Work</a>
+          <a href="#about" data-scroll-to>About me</a>
           <Link href="/">Home</Link>
           <Link href="/blog">Blog</Link>
           <div className={styles['burgerButton']}>
@@ -41,7 +41,7 @@ const Header = ({ audiowide }) => {
               <span className={styles['bot']}></span>
             </label>
           </div>
-        </nav>
+        </nav> */}
       </div>
     </header>
   );

@@ -2,6 +2,7 @@ import styles from '../styles/Briefcase.module.css';
 import Project from './Project';
 
 const Briefcase = ({ audiowide, projects }) => {
+  console.log(projects);
   return (
     <section className={styles.briefcase} id="briefcase">
       <div className={`container ${styles.briefcaseContainer}`}>
@@ -18,9 +19,10 @@ const Briefcase = ({ audiowide, projects }) => {
         </div>
 
         <div className={`${styles.works}`}>
-          {projects.map((el, index) => (
-            <Project key={el.id} data={el.attributes} audiowide={audiowide} />
-          ))}
+          {projects &&
+            projects.map((el, index) => (
+              <Project key={el.sys.id} data={el.fields} audiowide={audiowide} />
+            ))}
         </div>
       </div>
     </section>

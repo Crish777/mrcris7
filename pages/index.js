@@ -9,16 +9,48 @@ import Loader from '../components/Loader';
 import { Amatic_SC } from '@next/font/google';
 import { Audiowide } from '@next/font/google';
 import { useEffect, useState } from 'react';
+import { createClient } from 'contentful';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const amaticsc = Amatic_SC({ weight: ['400', '700'], subsets: ['latin'] });
 
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.SPACE_ID,
+    accessToken: process.env.ACCES_TOKEN,
+  });
+
+  const res = await client.getEntries({ content_type: 'project' });
+
+  return {
+    props: {
+      projects: res.items,
+    },
+  };
+}
+
 export default function Home({ projects, isError }) {
   const [loader, setLoader] = useState(true);
   const [thanksView, setThanksView] = useState(false);
+  const [localProjects, setLocalProjects] = useState([
+    {
+      attributes: {
+        gif: {
+          data: {
+            attributes: {
+              url: '/images/gif1.gif',
+            },
+          },
+        },
+        name: 'Project 1',
+        type: 'Web',
+        url: 'https://google.com',
+      },
+    },
+  ]);
 
   useEffect(() => {
-    if (projects) {
+    if (projects || projects === undefined) {
       setTimeout(() => {
         setLoader(false);
       }, 2000);
@@ -40,7 +72,7 @@ export default function Home({ projects, isError }) {
       <div data-scroll-section>
         <Hero amaticsc={amaticsc} setLoader={setLoader} />
         <Banner />
-        <Briefcase audiowide={audiowide} projects={projects} />
+        <Briefcase audiowide={audiowide} projects={projects ?? localProjects} />
         <About audiowide={audiowide} />
         <Contact
           audiowide={audiowide}
@@ -53,22 +85,23 @@ export default function Home({ projects, isError }) {
   );
 }
 
-export async function getServerSideProps() {
-  try {
-    const url = `${process.env.STRAPI_URL}/allprojects?populate=*`;
-    const response = await fetch(url);
-    const projects = await response.json();
-
-    return {
-      props: {
-        projects: projects.data,
-      },
-    };
-  } catch (error) {
-    return {
-      props: {
-        isError: 'error',
-      },
-    };
-  }
-}
+// export async function getServerSideProps() {
+//   try {
+//     const url = `${process.env.STRAPI_URL}/allprojects?populate=*`;
+//     console.log("first")
+//     const response = await fetch(url);
+//     console.log(response)
+//     const projects = await response.json();
+//     return {
+//       props: {
+//         projects: projects.data,
+//       },
+//     };
+//   } catch (error) {
+//     return {
+//       props: {
+//         isError: 'error',
+//       },
+//     };
+//   }
+// }

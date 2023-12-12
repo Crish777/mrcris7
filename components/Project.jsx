@@ -9,7 +9,9 @@ const Project = ({ data, id, audiowide }) => {
   const [speed, setSpeed] = useState(
     Math.floor(Math.random() * (2 - -1 + 1) + -1)
   );
-  
+
+  console.log(data);
+
   const atroposEl = useRef(null);
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -38,7 +40,11 @@ const Project = ({ data, id, audiowide }) => {
           <div className="atropos-inner">
             <div className={styles.backgroundSolid}>
               <div className={styles.gifContainer}>
-                <Image fill alt="" src={data.gif.data.attributes.url} />
+                <Image
+                  fill
+                  alt=""
+                  src={`https:${data.projectMedia[0].fields.file.url}`}
+                />
               </div>
               <div className={styles.infoProject}>
                 <h3
@@ -47,7 +53,7 @@ const Project = ({ data, id, audiowide }) => {
                   {data.name}
                 </h3>
                 <p className={styles.descProject} data-atropos-offset="5">
-                  {data.type}
+                  {data.description.content[0].content[0].value}
                 </p>
                 <a
                   href={data.url}
@@ -58,28 +64,35 @@ const Project = ({ data, id, audiowide }) => {
                   Live site
                 </a>
               </div>
-              {data.images.data.map((img) => (
-                <div
-                  key={img.attributes.id}
-                  className={`${
-                    img.attributes.alternativeText.includes('tablet') ||
-                    img.attributes.alternativeText.includes('Tablet')
-                      ? styles.tabletImage
-                      : img.attributes.alternativeText.includes('phone') ||
-                        img.attributes.alternativeText.includes('Phone')
-                      ? styles.phoneImage
-                      : styles.pcImage
-                  } ${styles.containerImage}`}
-                  data-atropos-offset="-10">
-                  <Image
-                    alt=""
-                    title=""
-                    src={img.attributes.url}
-                    fill
-                    className={styles.innerPcImage}
-                  />
-                </div>
-              ))}
+              {data.projectMedia &&
+                data.projectMedia.map((img, indexImg) => (
+                  <>
+                    {indexImg === 0 ? (
+                      ''
+                    ) : (
+                      <div
+                        key={img.sys.id}
+                        className={`${
+                          img.fields.title.includes('tablet') ||
+                          img.fields.title.includes('Tablet')
+                            ? styles.tabletImage
+                            : img.fields.title.includes('phone') ||
+                              img.fields.title.includes('Phone')
+                            ? styles.phoneImage
+                            : styles.pcImage
+                        } ${styles.containerImage}`}
+                        data-atropos-offset="-10">
+                        <Image
+                          alt=""
+                          title=""
+                          src={`https:${img.fields.file.url}`}
+                          fill
+                          className={styles.innerPcImage}
+                        />
+                      </div>
+                    )}
+                  </>
+                ))}
 
               {/* <div
                 className={`${styles.containerImage} ${styles.pcImage}`}
