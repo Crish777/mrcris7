@@ -50,7 +50,7 @@ const About = ({ audiowide }) => {
             este campo y después de solo 3 meses de estudio intenso, conseguí un
             trabajo como desarrollador frontend. Este trabajo me permitió
             progresar de manera acelerada en mi carrera y desarrollar mis
-            habilidades y conocimientos. Ahora, con más de dos años de
+            habilidades y conocimientos. Ahora, con más de tres años de
             experiencia, me he especializado en el uso de tecnologías como HTML,
             CSS, JavaScript, jQuery, ReactJS, NextJS, GitHub y un poco de
             Node.js. Me apasiona lo que hago y me siento muy orgulloso de haber
