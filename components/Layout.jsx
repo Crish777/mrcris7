@@ -1,5 +1,5 @@
 import Footer from './Footer';
-import { Amatic_SC } from '@next/font/google';
+// import { Amatic_SC } from '@next/font/google';
 import { Audiowide } from '@next/font/google';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });

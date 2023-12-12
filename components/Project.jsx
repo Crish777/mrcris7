@@ -4,12 +4,11 @@ import Atropos from 'atropos';
 import styles from '../styles/Project.module.css';
 import 'atropos/css';
 
-const Project = ({ data, id, audiowide }) => {
+const Project = ({ data, audiowide }) => {
   const [gif, setGif] = useState(false);
   const [speed, setSpeed] = useState(
     Math.floor(Math.random() * (2 - -1 + 1) + -1)
   );
-
 
   const atroposEl = useRef(null);
   useEffect(() => {

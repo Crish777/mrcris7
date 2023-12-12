@@ -19,7 +19,7 @@ const Briefcase = ({ audiowide, projects }) => {
 
         <div className={`${styles.works}`}>
           {projects &&
-            projects.map((el, index) => (
+            projects.map((el) => (
               <Project key={el.sys.id} data={el.fields} audiowide={audiowide} />
             ))}
         </div>

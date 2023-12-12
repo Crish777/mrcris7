@@ -5,9 +5,9 @@ import styles from '../styles/Header.module.css';
 
 const Header = ({ audiowide }) => {
   const header = useRef(null);
-  const toggleMenu = () => {
-    header.current.classList.toggle(styles.active);
-  };
+  // const toggleMenu = () => {
+  //   header.current.classList.toggle(styles.active);
+  // };
   return (
     <header className={styles.header} ref={header}>
       <div className={`${styles.containerHeader} container`}>
