@@ -10,7 +10,6 @@ const Project = ({ data, id, audiowide }) => {
     Math.floor(Math.random() * (2 - -1 + 1) + -1)
   );
 
-  console.log(data);
 
   const atroposEl = useRef(null);
   useEffect(() => {

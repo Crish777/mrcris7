@@ -2,7 +2,6 @@ import styles from '../styles/Briefcase.module.css';
 import Project from './Project';
 
 const Briefcase = ({ audiowide, projects }) => {
-  console.log(projects);
   return (
     <section className={styles.briefcase} id="briefcase">
       <div className={`container ${styles.briefcaseContainer}`}>
