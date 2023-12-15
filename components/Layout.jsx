@@ -1,3 +1,4 @@
+
 import Footer from './Footer';
 // import { Amatic_SC } from '@next/font/google';
 import { Audiowide } from '@next/font/google';
@@ -9,6 +10,8 @@ const Layout = ({ children }) => {
     <>
       {children}
       <Footer audiowide={audiowide} />
+      <SpeedInsights />
+      <Analytics />
     </>
   );
 };
