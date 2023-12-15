@@ -10,8 +10,6 @@ const Layout = ({ children }) => {
     <>
       {children}
       <Footer audiowide={audiowide} />
-      <SpeedInsights />
-      <Analytics />
     </>
   );
 };
