@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import { Audiowide } from '@next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
@@ -54,6 +55,7 @@ export default function App({ Component, pageProps }) {
         {/* <Layout> */}
         <Component {...pageProps} />
         <SpeedInsights />
+        <Analytics />
         {/* </Layout> */}
         {/* </div> */}
       </main>
