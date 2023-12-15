@@ -8,9 +8,9 @@ const About = ({ audiowide }) => {
   useEffect(() => {
     let instance;
 
-    const destroyUkiyo = () => {
-      instance.destroy();
-    };
+    // const destroyUkiyo = () => {
+    //   instance.destroy();
+    // };
     const createyUkiyo = () => {
       instance = new Ukiyo(ukiyo.current, {
         scale: 1.5,

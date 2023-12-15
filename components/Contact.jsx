@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from '../styles/Contact.module.css';
 // import Ukiyo from 'ukiyojs';
@@ -26,7 +26,7 @@ export const Contact = ({ audiowide, setLoader, setThanksView }) => {
           'Pu_NKH-w4e0Ya29xz'
         )
         .then(
-          (result) => {
+          () => {
             textarea.current.value = '';
             phone.current.value = '';
             email.current.value = '';
