@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import { Audiowide } from '@next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
@@ -52,6 +53,7 @@ export default function App({ Component, pageProps }) {
         {/* <div data-scroll-section> */}
         {/* <Layout> */}
         <Component {...pageProps} />
+        <SpeedInsights />
         {/* </Layout> */}
         {/* </div> */}
       </main>
