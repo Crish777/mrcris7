@@ -15,12 +15,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 170px 0 47px;
+  aspect-ratio: 16/9;
   border-radius: 10px;
 }
 
 .gifContainer {
-  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -38,6 +37,12 @@
 }
 
 .gifContainer img {
+  object-fit: cover;
+}
+
+.project-video {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -124,6 +129,8 @@
   position: relative;
   transition: all 0.5s ease-in-out;
   opacity: 1;
+  top: 12.5%;
+  filter: drop-shadow(2px 4px 6px #282829);
 }
 
 .containerImage img {
@@ -138,9 +145,10 @@
 .pcImage {
   width: 60%;
   aspect-ratio: 16/9;
-  margin: -150px -25px 0;
+  margin: -25px 0;
   z-index: 0;
   order: 1;
+  top: -12.5%;
 }
 .phoneImage {
   width: 15%;

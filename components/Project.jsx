@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Atropos from 'atropos';
 import styles from '../styles/Project.module.css';
 import 'atropos/css';
@@ -8,6 +8,19 @@ const Project = ({ data, audiowide }) => {
   const [gif, setGif] = useState(false);
   const [speed, setSpeed] = useState(
     Math.floor(Math.random() * (2 - -1 + 1) + -1)
+  );
+
+  const videoProject = useCallback(
+    (node) => {
+      if (node !== null) {
+        if (gif) {
+          node.play();
+        } else {
+          node.pause();
+        }
+      }
+    },
+    [gif]
   );
 
   const atroposEl = useRef(null);
@@ -28,8 +41,12 @@ const Project = ({ data, audiowide }) => {
     <div
       className={`${styles.work} atropos ${gif ? styles.showgif : ''}`}
       ref={atroposEl}
-      onMouseEnter={() => setGif(true)}
-      onMouseLeave={() => setGif(false)}
+      onMouseEnter={() => {
+        setGif(true);
+      }}
+      onMouseLeave={() => {
+        setGif(false);
+      }}
       data-scroll
       data-scroll-direction="horizontal"
       data-scroll-speed={speed}>
@@ -37,12 +54,30 @@ const Project = ({ data, audiowide }) => {
         <div className="atropos-rotate">
           <div className="atropos-inner">
             <div className={styles.backgroundSolid}>
-              <div className={styles.gifContainer}>
-                <Image
-                  fill
-                  alt=""
-                  src={`https:${data.projectMedia[0].fields.file.url}`}
-                />
+              <div className={styles.gifContainer} data-scroll-repeat>
+                {data.projectMedia.filter(
+                  (media) => media.fields.title === 'video'
+                )[0] ? (
+                  <video
+                    muted
+                    loop
+                    className={styles['project-video']}
+                    ref={videoProject}>
+                    <source
+                      src={`https:${
+                        data.projectMedia.filter(
+                          (media) => media.fields.title === 'video'
+                        )[0].fields.file.url
+                      }`}
+                    />
+                  </video>
+                ) : (
+                  <Image
+                    fill
+                    alt=""
+                    src={`https:${data.projectMedia[0].fields.file.url}`}
+                  />
+                )}
               </div>
               <div className={styles.infoProject}>
                 <h3
@@ -91,31 +126,6 @@ const Project = ({ data, audiowide }) => {
                     )}
                   </>
                 ))}
-
-              {/* <div
-                className={`${styles.containerImage} ${styles.pcImage}`}
-                data-atropos-offset="-5"
-              >
-                <Image
-                  alt=""
-                  title=""
-                  src="/images/pc-1-final.png"
-                  fill
-                  className={styles.innerPcImage}
-                />
-              </div>
-              <div
-                className={`${styles.containerImage} ${styles.phoneImage}`}
-                data-atropos-offset="30"
-              >
-                <Image
-                  alt=""
-                  title=""
-                  src="/images/phone-1-final.png"
-                  fill
-                  className={styles.innerPcImage}
-                />
-              </div> */}
             </div>
           </div>
         </div>

@@ -26,7 +26,7 @@ const DetailBlog = ({ blog }) => {
       wrapperClass: 'ukiyo-wrapper',
       externalRAF: false,
     });
-  }, []);
+  }, [blog]);
 
   return (
     <>

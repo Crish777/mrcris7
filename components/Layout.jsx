@@ -1,4 +1,3 @@
-
 import Footer from './Footer';
 // import { Amatic_SC } from '@next/font/google';
 import { Audiowide } from '@next/font/google';
