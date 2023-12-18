@@ -18,7 +18,7 @@ const Blog = ({ blogs }) => {
         setLoader(false);
       }, 2000);
     }
-  }, []);
+  }, [blogs]);
   return (
     <>
       <Head>

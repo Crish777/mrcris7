@@ -2,11 +2,11 @@ import { Rasa } from '@next/font/google';
 import { LocomotiveScrollProvider as RLSProvider } from 'react-locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import '../styles/globals.css';
-import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import { Audiowide } from '@next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import { useRef } from 'react';
 // import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
@@ -33,6 +33,7 @@ export default function App({ Component, pageProps }) {
           tablet: {
             smooth: false,
           },
+          scrollFromAnywhere: true,
           // ... all available Locomotive Scroll instance options
         }}
         watch={

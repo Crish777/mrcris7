@@ -32,22 +32,6 @@ export async function getStaticProps() {
 export default function Home({ projects, isError }) {
   const [loader, setLoader] = useState(true);
   const [thanksView, setThanksView] = useState(false);
-  const [localProjects, setLocalProjects] = useState([
-    {
-      attributes: {
-        gif: {
-          data: {
-            attributes: {
-              url: '/images/gif1.gif',
-            },
-          },
-        },
-        name: 'Project 1',
-        type: 'Web',
-        url: 'https://google.com',
-      },
-    },
-  ]);
 
   useEffect(() => {
     if (projects || projects === undefined) {
@@ -55,7 +39,7 @@ export default function Home({ projects, isError }) {
         setLoader(false);
       }, 2000);
     }
-  }, []);
+  }, [projects]);
   if (isError) {
     return <div></div>;
   }
@@ -72,7 +56,7 @@ export default function Home({ projects, isError }) {
       <div data-scroll-section>
         <Hero amaticsc={amaticsc} setLoader={setLoader} />
         <Banner />
-        <Briefcase audiowide={audiowide} projects={projects ?? localProjects} />
+        <Briefcase audiowide={audiowide} projects={projects} />
         <About audiowide={audiowide} />
         <Contact
           audiowide={audiowide}
