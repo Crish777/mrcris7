@@ -7,7 +7,7 @@ import Header from '../components/Header';
 import { Audiowide } from '@next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { useRef } from 'react';
-// import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
@@ -53,15 +53,10 @@ export default function App({ Component, pageProps }) {
           data-scroll-container
           ref={containerRef}>
           <Header audiowide={audiowide} />
-          {/* <div data-scroll-section> */}
-          {/* <Layout> */}
           <Component {...pageProps} />
-          {/* </Layout> */}
-          {/* </div> */}
-          {/* <SpeedInsights /> */}
+          <SpeedInsights />
         </main>
       </RLSProvider>
-      {/* <SpeedInsights /> */}
       <Analytics />
     </>
   );
