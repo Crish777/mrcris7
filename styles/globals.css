@@ -258,6 +258,17 @@ main.container {
   background-image: none !important;
 }
 
+.subtitleSection {
+  color: #fffffa;
+  font-size: 80px;
+  text-align: left;
+}
+
+.siteParagraph {
+  line-height: 1.4;
+  font-size: 22px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

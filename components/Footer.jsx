@@ -9,6 +9,10 @@ const Footer = ({ audiowide }) => {
           <span className={audiowide.className}>Cristhian Herrera</span>
           <span className={styles.terms}>Terms and Conditions</span>
         </h3>
+
+        <h3 className={styles.copyText}>
+          <span> &copy;MrCris7 2023</span>
+        </h3>
       </div>
     </footer>
   );

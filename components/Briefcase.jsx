@@ -12,7 +12,7 @@ const Briefcase = ({ audiowide, projects }) => {
               data-scroll
               data-scroll-direction="horizontal"
               data-scroll-speed={-1}>
-              Proyectos ~
+              Proyectos
             </h2>
           </div>
         </div>
