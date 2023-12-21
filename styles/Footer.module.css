@@ -15,6 +15,11 @@
 
 .terms.terms {
   display: block;
-  margin-top: 5px;
+  margin-top: 15px;
   color: #fffffa;
+}
+
+
+.copyText{
+  margin-top: 15px;
 }
