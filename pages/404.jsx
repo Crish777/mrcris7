@@ -17,6 +17,10 @@ const Index = () => {
             <span> Estás perdido ?</span>
           </h3>
           <Link className={styles['return-to-house']} href="/">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
             Volvamos a casa
           </Link>
         </div>
