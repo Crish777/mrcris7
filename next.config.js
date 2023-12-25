@@ -8,6 +8,10 @@ const nextConfig = {
       'downloads.ctfassets.net',
     ],
   },
+  i18n: {
+    locales: ['es'],
+    defaultLocale: 'es',
+  },
 };
 
 module.exports = nextConfig;

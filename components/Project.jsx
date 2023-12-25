@@ -4,7 +4,7 @@ import Atropos from 'atropos';
 import styles from '../styles/Project.module.css';
 import 'atropos/css';
 
-const Project = ({ data, audiowide }) => {
+const Project = ({ data, audiowide, id }) => {
   const [gif, setGif] = useState(false);
   const [speed, setSpeed] = useState(
     Math.floor(Math.random() * (2 - -1 + 1) + -1)
@@ -39,6 +39,7 @@ const Project = ({ data, audiowide }) => {
   }, []);
   return (
     <div
+      key={id}
       className={`${styles.work} atropos ${gif ? styles.showgif : ''}`}
       ref={atroposEl}
       onMouseEnter={() => {

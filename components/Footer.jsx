@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from '../styles/Footer.module.css';
 
 const Footer = ({ audiowide }) => {
@@ -7,7 +8,9 @@ const Footer = ({ audiowide }) => {
         <h3 className={styles.copyright}>
           Developed by:{' '}
           <span className={audiowide.className}>Cristhian Herrera</span>
-          <span className={styles.terms}>Terms and Conditions</span>
+          <Link href="/terms-and-conditions" className={styles.terms}>
+            Terms and Conditions
+          </Link>
         </h3>
 
         <h3 className={styles.copyText}>
