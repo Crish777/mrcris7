@@ -6,9 +6,25 @@ import { Audiowide } from '@next/font/google';
 import Head from 'next/head';
 import Loader from '../components/Loader';
 import { useEffect, useState } from 'react';
+import { createClient } from 'contentful';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const amaticsc = Amatic_SC({ weight: ['400', '700'], subsets: ['latin'] });
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.SPACE_ID,
+    accessToken: process.env.ACCES_TOKEN,
+  });
+
+  const res = await client.getEntries({ content_type: 'blog' });
+
+  return {
+    props: {
+      blogs: res.items,
+    },
+  };
+}
 
 const Blog = ({ blogs }) => {
   const [loader, setLoader] = useState(true);
@@ -18,6 +34,7 @@ const Blog = ({ blogs }) => {
         setLoader(false);
       }, 2000);
     }
+    console.log(blogs)
   }, [blogs]);
   return (
     <>
@@ -41,17 +58,5 @@ const Blog = ({ blogs }) => {
     </>
   );
 };
-
-export async function getServerSideProps() {
-  const url = `${process.env.STRAPI_URL}/blogs?populate=image`;
-  const response = await fetch(url);
-  const blogs = await response.json();
-
-  return {
-    props: {
-      blogs: blogs.data,
-    },
-  };
-}
 
 export default Blog;

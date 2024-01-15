@@ -21,7 +21,7 @@ const BlogCard = ({ amaticsc, data }) => {
     }
   }, []);
   return (
-    <Link href={`/blog/${data.id}`}>
+    <Link href={`/blog/${data.sys.id}`}>
       <div className={styles.blogCard} ref={atroposEl}>
         <div className="atropos-scale">
           <div className="atropos-rotate">
@@ -29,7 +29,7 @@ const BlogCard = ({ amaticsc, data }) => {
               <div className={styles.imgBlog} data-atropos-offset="1">
                 <Image
                   fill
-                  src={data.attributes.image.data.attributes.formats.large.url}
+                  src={`https://${data.fields.miniatura.fields.file.url}`}
                   alt=""
                   priority
                   sizes="(max-width: 768px) 100vw,
@@ -41,10 +41,10 @@ const BlogCard = ({ amaticsc, data }) => {
                 <h2
                   className={`${amaticsc.className} ${styles.blogName}`}
                   data-atropos-offset="-1">
-                  {data.attributes.title}
+                  {data.fields.titleBlog}
                 </h2>
                 <p className={styles.resume} data-atropos-offset="-3">
-                  {data.attributes.summary}
+                  {data.fields.summary}
                 </p>
               </div>
             </div>

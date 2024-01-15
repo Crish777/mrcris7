@@ -64,6 +64,19 @@
   margin: 20px 0;
   padding-left: 40px;
 }
+.contentBlog ol {
+  margin: 20px 0;
+  padding-left: 20px;
+  list-style-type: decimal;
+}
+
+.contentBlog ol li {
+  margin-bottom: 15px;
+}
+
+.contentBlog ol li span:first-of-type {
+  font-weight: bold;
+}
 
 .contentBlog ul li {
   list-style: disc;
@@ -76,6 +89,27 @@
 
 .contentBlog p > div {
   margin: 20px 0;
+}
+
+.contentBlog h3 {
+  font-size: 33px;
+  margin: 30px 0 20px;
+  font-weight: bold;
+}
+
+.contentBlog h4 {
+  font-size: 25px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.contentBlog a {
+  display: inline-block;
+  color: #ff000063;
+}
+
+.inlineParagraph {
+  display: inline-block;
 }
 
 @media only screen and (max-width: 1400px) {

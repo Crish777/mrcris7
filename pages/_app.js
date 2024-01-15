@@ -6,8 +6,9 @@ import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import { Audiowide } from '@next/font/google';
 import { Analytics } from '@vercel/analytics/react';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { hotjar } from 'react-hotjar';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
@@ -16,6 +17,10 @@ const rasa = Rasa({ weight: '400', subsets: ['latin'] });
 export default function App({ Component, pageProps }) {
   const { asPath } = useRouter(); // With next/router
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    hotjar.initialize(3826559, 6);
+  }, [])
   return (
     <>
       <RLSProvider
