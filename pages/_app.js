@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     hotjar.initialize(3826559, 6);
-  }, [])
+  }, []);
   return (
     <>
       <RLSProvider

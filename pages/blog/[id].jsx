@@ -103,7 +103,10 @@ const DetailBlog = ({ blog }) => {
                           <p className={styles.inlineParagraph}>{text.value}</p>
                         )}{' '}
                         {text.nodeType === 'hyperlink' && (
-                          <a target="_blank" rel="opener" href={text.data.uri}>
+                          <a
+                            target="_blank"
+                            rel="opener noreferrer"
+                            href={text.data.uri}>
                             {text.content[0].value}
                           </a>
                         )}
@@ -121,7 +124,7 @@ const DetailBlog = ({ blog }) => {
                 {content.nodeType === 'ordered-list' && (
                   <ol>
                     {content.content.map((liContent) => (
-                      <li>
+                      <li key={liContent}>
                         {liContent.content[0].content[0].value && (
                           <span>{liContent.content[0].content[0].value}</span>
                         )}
@@ -143,17 +146,5 @@ const DetailBlog = ({ blog }) => {
     </>
   );
 };
-
-// export async function getServerSideProps(req) {
-//   const url = `${process.env.STRAPI_URL}/blogs/${req.params.id}?populate=image`;
-//   const response = await fetch(url);
-//   const blog = await response.json();
-
-//   return {
-//     props: {
-//       blog: blog.data,
-//     },
-//   };
-// }
 
 export default DetailBlog;
