@@ -1,0 +1,69 @@
+.navHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #00000055;
+  backdrop-filter: blur(20px);
+  -webkit-transform: translateX(105%);
+  transform: translateX(105%);
+  align-content: center;
+  gap: 30px;
+  transition: 1s cubic-bezier(0.858, 0.01, 0.068, 0.99),
+    opacity 0s ease-in-out 0s;
+}
+
+.animateNav.navHeader {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+  transition: 1s cubic-bezier(0.858, 0.01, 0.068, 0.99) 0.1s,
+    opacity 0.5s ease-in-out 1.7s;
+}
+
+.navHeader a {
+  text-align: center;
+  font-size: 50px;
+  text-transform: uppercase;
+  position: relative;
+  transition: all 0.5s linear;
+  text-shadow: -5px -2px 10px #ff000000;
+}
+
+.navHeader a:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  margin-top: -1.5px;
+  background-color: #ff312e;
+  border-radius: 10px;
+  transform-origin: right center;
+  transform: scale(0);
+  transition: all 0.5s linear;
+}
+
+.navHeader a:hover:before,
+.navHeader a.active:before {
+  transform: scale(1);
+}
+
+.navHeader a:hover,
+.navHeader a.active {
+  text-shadow: -5px -2px 10px #ff0000d3;
+}
+
+@media only screen and (max-width: 768px) {
+  .navHeader a {
+    font-size: 35px;
+  }
+}

@@ -97,24 +97,33 @@ const DetailBlog = ({ blog }) => {
               <>
                 {content.nodeType === 'paragraph' &&
                   (content.content.length ? (
-                    content.content.map((text) => (
-                      <>
-                        {text.nodeType === 'text' && (
-                          <p className={styles.inlineParagraph}>{text.value}</p>
-                        )}{' '}
-                        {text.nodeType === 'hyperlink' && (
-                          <a
-                            target="_blank"
-                            rel="opener noreferrer"
-                            href={text.data.uri}>
-                            {text.content[0].value}
-                          </a>
-                        )}
-                      </>
-                    ))
+                    <div className={styles.inlineParagraphGroup}>
+                      {content.content.map((text) => (
+                        <>
+                          {text.nodeType === 'text' && (
+                            <span className={styles.inlineParagraph}>
+                              {text.value}
+                            </span>
+                          )}{' '}
+                          {text.nodeType === 'hyperlink' && (
+                            <a
+                              target="_blank"
+                              rel="opener noreferrer"
+                              href={text.data.uri}>
+                              {text.content[0].value}
+                            </a>
+                          )}
+                        </>
+                      ))}
+                    </div>
                   ) : (
-                    <p>{content.content[0].value}</p>
+                    <p className={styles.oneBlock}>
+                      {content.content[0].value}
+                    </p>
                   ))}
+                {content.nodeType === 'heading-2' && (
+                  <h2>{content.content[0].value}</h2>
+                )}
                 {content.nodeType === 'heading-3' && (
                   <h3>{content.content[0].value}</h3>
                 )}
@@ -134,6 +143,20 @@ const DetailBlog = ({ blog }) => {
                       </li>
                     ))}
                   </ol>
+                )}
+                {content.nodeType === 'unordered-list' && (
+                  <ul>
+                    {content.content.map((liContent) => (
+                      <li key={liContent}>
+                        {liContent.content[0].content[0].value && (
+                          <span>{liContent.content[0].content[0].value}</span>
+                        )}
+                        {liContent.content[0].content[1].value && (
+                          <span>{liContent.content[0].content[1].value}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </>
             ))}

@@ -93,7 +93,7 @@
 
 .contentBlog h3 {
   font-size: 33px;
-  margin: 30px 0 20px;
+  margin: 20px 0 20px;
   font-weight: bold;
 }
 
@@ -105,11 +105,19 @@
 
 .contentBlog a {
   display: inline-block;
-  color: #ff000063;
+  color: #ff0000;
 }
 
 .inlineParagraph {
-  display: inline-block;
+  display: contents;
+}
+
+.oneBlock {
+  display: block;
+}
+
+.inlineParagraphGroup {
+  margin: 20px 0;
 }
 
 @media only screen and (max-width: 1400px) {
