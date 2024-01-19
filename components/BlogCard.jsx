@@ -29,7 +29,7 @@ const BlogCard = ({ amaticsc, data }) => {
               <div className={styles.imgBlog} data-atropos-offset="1">
                 <Image
                   fill
-                  src={`https://${data.fields.miniatura.fields.file.url}`}
+                  src={`https:${data.fields.miniatura.fields.file.url}`}
                   alt=""
                   priority
                   sizes="(max-width: 768px) 100vw,
