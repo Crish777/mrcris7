@@ -12,6 +12,10 @@
   min-height: calc(100vh - 370px);
 }
 
+.containerBlog a{
+  border-radius: 10px;
+}
+
 @media only screen and (max-width: 768px) {
   .sectionBlog {
     padding-top: 20px;
@@ -23,6 +27,6 @@
 
   .containerBlog a {
     margin-bottom: 50px;
-    box-shadow: 0px 0px 15px #515052, 0px 0px 45px #515052, 0px 0px 75px #515052;
+    box-shadow: 0px 0px 15px #515052;
   }
 }

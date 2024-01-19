@@ -39,7 +39,6 @@ const Header = ({ audiowide }) => {
       e.target.style.pointerEvents = null;
       setDisablePointer(false);
     }, 50);
-    
   };
 
   return (
