@@ -48,7 +48,6 @@ const DetailBlog = ({ blog }) => {
       setTimeout(() => {
         setLoader(false);
       }, 2000);
-      console.log(blog);
     }
     const images = document.querySelectorAll('.sectionPage img');
     new Ukiyo(images, {
@@ -59,7 +58,6 @@ const DetailBlog = ({ blog }) => {
       externalRAF: false,
     });
   }, [blog]);
-  console.log(blog);
 
   return (
     <>

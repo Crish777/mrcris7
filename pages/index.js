@@ -68,24 +68,3 @@ export default function Home({ projects, isError }) {
     </>
   );
 }
-
-// export async function getServerSideProps() {
-//   try {
-//     const url = `${process.env.STRAPI_URL}/allprojects?populate=*`;
-//     console.log("first")
-//     const response = await fetch(url);
-//     console.log(response)
-//     const projects = await response.json();
-//     return {
-//       props: {
-//         projects: projects.data,
-//       },
-//     };
-//   } catch (error) {
-//     return {
-//       props: {
-//         isError: 'error',
-//       },
-//     };
-//   }
-// }

@@ -34,7 +34,6 @@ const Blog = ({ blogs }) => {
         setLoader(false);
       }, 2000);
     }
-    console.log(blogs);
   }, [blogs]);
   return (
     <>

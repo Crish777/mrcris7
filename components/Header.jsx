@@ -29,19 +29,17 @@ const Header = ({ audiowide }) => {
         e.target.style.pointerEvents = null;
         setDisablePointer(false);
       }, 1100);
+      document.body.style.overflow = null;
       return;
     }
     setOpenMenu(true);
+    document.body.style.overflow = 'hidden';
     setTimeout(() => {
       setAnimate(true);
       e.target.style.pointerEvents = null;
       setDisablePointer(false);
     }, 50);
-    if (openMenu) {
-      document.body.style.overflow = 'hidden';
-      return;
-    }
-    document.body.style.overflow = null;
+    
   };
 
   return (
