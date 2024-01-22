@@ -16,6 +16,7 @@ const Header = ({ audiowide }) => {
     setOpenMenu(false);
     setAnimate(false);
     header.current.classList.remove(styles.activeHeader);
+    document.body.style.overflow = null;
   }, [pathname]);
 
   const toggleMenu = (e) => {
