@@ -18,14 +18,19 @@ const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 export async function getServerSideProps({ params }) {
   const query = `query {
     blog (id:"${params.id}") {
+      contentfulMetadata{
+        tags{
+          name
+        }
+      }
       titleBlog
-      contentBlog {
-        json
-      }
-      miniatura {
-        url
-      }
-      summary
+        contentBlog {
+          json
+        }
+        miniatura {
+          url
+        }
+        summary
     }
   }`;
   const response = await fetch(
@@ -70,7 +75,14 @@ const DetailBlog = ({ blog }) => {
 
   const options = {
     renderMark: {
-      [MARKS.CODE]: (text) => <Highlight>{text}</Highlight>,
+      [MARKS.CODE]: (text) => {
+        return (
+          <Highlight
+            className={`language-${blog.contentfulMetadata.tags[0].name}`}>
+            {text}
+          </Highlight>
+        );
+      },
     },
   };
 
