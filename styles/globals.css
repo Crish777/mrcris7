@@ -276,7 +276,8 @@ main.container {
   color: #5162ff;
 }
 
-.hljs-attr {
+.hljs-attr,
+.hljs-attribute {
   color: #1373c1;
 }
 

@@ -121,7 +121,7 @@
   display: block;
 }
 
-.inlineParagraphGroup {
+.contentBlog p {
   margin: 20px 0;
 }
 
@@ -143,12 +143,12 @@
   overflow-x: auto;
 }
 
-.contentBlog code::-webkit-scrollbar{
+.contentBlog code::-webkit-scrollbar {
   height: 5px;
   border-radius: 5px;
   background-color: #ff00006c;
 }
-.contentBlog code::-webkit-scrollbar-thumb{
+.contentBlog code::-webkit-scrollbar-thumb {
   height: 5px;
   border-radius: 5px;
   background-color: #ff0000;
