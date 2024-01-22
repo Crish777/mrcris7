@@ -37,6 +37,7 @@
   text-align: center;
   position: relative;
   z-index: 1;
+  font-weight: bold;
 }
 
 .contentBlog {
@@ -109,7 +110,11 @@
 }
 
 .inlineParagraph {
-  display: contents;
+  position: relative;
+}
+
+.boldText {
+  font-weight: 500;
 }
 
 .oneBlock {
@@ -118,6 +123,33 @@
 
 .inlineParagraphGroup {
   margin: 20px 0;
+}
+
+.contentBlog i {
+  font-style: italic;
+}
+.contentBlog b {
+  font-weight: bold;
+}
+
+.contentBlog code {
+  background-color: #39353d;
+  padding: 15px 20px;
+  border: 1px solid #00000062;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 5px #00000062;
+  margin: 5px;
+  display: block;
+}
+
+.contentBlog .returnToBlog {
+  margin-top: 50px;
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 1400px) {

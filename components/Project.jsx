@@ -56,27 +56,30 @@ const Project = ({ data, audiowide, id }) => {
           <div className="atropos-inner">
             <div className={styles.backgroundSolid}>
               <div className={styles.gifContainer} data-scroll-repeat>
-                {data.projectMedia.filter(
-                  (media) => media.fields.title === 'video'
-                )[0] ? (
+                {data.projectMediaCollection.items.filter(
+                  (media) => media.title === 'video'
+                )[0] && (
                   <video
                     muted
                     loop
                     className={styles['project-video']}
                     ref={videoProject}>
                     <source
-                      src={`https:${
-                        data.projectMedia.filter(
-                          (media) => media.fields.title === 'video'
-                        )[0].fields.file.url
+                      src={`${
+                        data.projectMediaCollection.items.filter(
+                          (media) => media.title === 'video'
+                        )[0].url
                       }`}
                     />
                   </video>
-                ) : (
+                )}
+                {data.projectMediaCollection.items.filter(
+                  (media) => media.title === 'mainImg'
+                )[0] && (
                   <Image
                     fill
                     alt=""
-                    src={`https:${data.projectMedia[0].fields.file.url}`}
+                    src={`${data.projectMediaCollection[0].fields.file.url}`}
                   />
                 )}
               </div>
@@ -87,7 +90,7 @@ const Project = ({ data, audiowide, id }) => {
                   {data.name}
                 </h3>
                 <p className={styles.descProject} data-atropos-offset="5">
-                  {data.description.content[0].content[0].value}
+                  {data.description.json.content[0].content[0].value}
                 </p>
                 <a
                   href={data.url}
@@ -98,8 +101,8 @@ const Project = ({ data, audiowide, id }) => {
                   Live site
                 </a>
               </div>
-              {data.projectMedia &&
-                data.projectMedia.map((img, indexImg) => (
+              {data.projectMediaCollection.items &&
+                data.projectMediaCollection.items.map((img, indexImg) => (
                   <>
                     {indexImg === 0 ? (
                       ''
@@ -107,11 +110,11 @@ const Project = ({ data, audiowide, id }) => {
                       <div
                         key={img.sys.id}
                         className={`${
-                          img.fields.title.includes('tablet') ||
-                          img.fields.title.includes('Tablet')
+                          img.title.includes('tablet') ||
+                          img.title.includes('Tablet')
                             ? styles.tabletImage
-                            : img.fields.title.includes('phone') ||
-                              img.fields.title.includes('Phone')
+                            : img.title.includes('phone') ||
+                              img.title.includes('Phone')
                             ? styles.phoneImage
                             : styles.pcImage
                         } ${styles.containerImage}`}
@@ -119,7 +122,7 @@ const Project = ({ data, audiowide, id }) => {
                         <Image
                           alt=""
                           title=""
-                          src={`https:${img.fields.file.url}`}
+                          src={`${img.url}`}
                           fill
                           className={styles.innerPcImage}
                         />

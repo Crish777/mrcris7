@@ -29,7 +29,7 @@ const BlogCard = ({ amaticsc, data }) => {
               <div className={styles.imgBlog} data-atropos-offset="1">
                 <Image
                   fill
-                  src={`https:${data.fields.miniatura.fields.file.url}`}
+                  src={`${data.miniatura.url}`}
                   alt=""
                   priority
                   sizes="(max-width: 768px) 100vw,
@@ -41,10 +41,10 @@ const BlogCard = ({ amaticsc, data }) => {
                 <h2
                   className={`${amaticsc.className} ${styles.blogName}`}
                   data-atropos-offset="-1">
-                  {data.fields.titleBlog}
+                  {data.titleBlog}
                 </h2>
                 <p className={styles.resume} data-atropos-offset="-3">
-                  {data.fields.summary}
+                  {data.summary}
                 </p>
               </div>
             </div>

@@ -6,36 +6,45 @@ import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import Loader from '../../components/Loader';
 import { Contact } from '../../components/Contact';
-import { createClient } from 'contentful';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import dynamic from 'next/dynamic';
+import { MARKS } from '@contentful/rich-text-types';
+import Link from 'next/link';
+
+const Highlight = dynamic(() => import('react-highlight'), { ssr: false });
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
-// export async function getStaticPaths() {
-//   return {
-//     paths: [
-//       // String variant:
-//       '/blog/[id]',
-//       // Object variant:
-//       { params: { slug: 'id' } },
-//     ],
-//     fallback: true,
-//   };
-// }
-
 export async function getServerSideProps({ params }) {
-  const client = createClient({
-    space: process.env.SPACE_ID,
-    accessToken: process.env.ACCES_TOKEN,
-  });
-
-  const res = await client.getEntries({
-    content_type: 'blog',
-    'sys.id': params.id,
-  });
+  const query = `query {
+    blog (id:"${params.id}") {
+      titleBlog
+      contentBlog {
+        json
+      }
+      miniatura {
+        url
+      }
+      summary
+    }
+  }`;
+  const response = await fetch(
+    `https://graphql.contentful.com/content/v1/spaces/${process.env.SPACE_ID}/environments/master`,
+    {
+      headers: {
+        'Authorization': `Bearer ${process.env.ACCES_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ query }),
+    }
+  );
+  const body = await response.json();
+  const blog = body.data.blog;
 
   return {
     props: {
-      blog: res.items[0],
+      blog,
     },
   };
 }
@@ -59,11 +68,17 @@ const DetailBlog = ({ blog }) => {
     });
   }, [blog]);
 
+  const options = {
+    renderMark: {
+      [MARKS.CODE]: (text) => <Highlight>{text}</Highlight>,
+    },
+  };
+
   return (
     <>
       <Head>
-        <title>{blog.fields.titleBlog} | MrCris</title>
-        <meta name="description" content={blog.fields.summary} />
+        <title>{blog.titleBlog} | MrCris</title>
+        <meta name="description" content={blog.summary} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/favicon-red.webp" />
       </Head>
@@ -75,7 +90,7 @@ const DetailBlog = ({ blog }) => {
           <div
             className={styles.heroDetailBlog}
             style={{
-              backgroundImage: `url(https://${blog.fields.miniatura.fields.file.url})`,
+              backgroundImage: `url(${blog.miniatura.url})`,
             }}
             ref={heroBlog}
             data-scroll
@@ -86,80 +101,17 @@ const DetailBlog = ({ blog }) => {
               data-scroll
               data-scroll-direction="vertical"
               data-scroll-speed={2}>
-              {blog.fields.titleBlog}
+              {blog.titleBlog}
             </h1>
           </div>
-
           <div className={`container ${styles.contentBlog}`}>
-            {blog.fields.contentBlog.content.map((content) => (
-              <>
-                {content.nodeType === 'paragraph' &&
-                  (content.content.length ? (
-                    <div className={styles.inlineParagraphGroup}>
-                      {content.content.map((text) => (
-                        <>
-                          {text.nodeType === 'text' && (
-                            <span className={styles.inlineParagraph}>
-                              {text.value}
-                            </span>
-                          )}{' '}
-                          {text.nodeType === 'hyperlink' && (
-                            <a
-                              target="_blank"
-                              rel="opener noreferrer"
-                              href={text.data.uri}>
-                              {text.content[0].value}
-                            </a>
-                          )}
-                        </>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className={styles.oneBlock}>
-                      {content.content[0].value}
-                    </p>
-                  ))}
-                {content.nodeType === 'heading-2' && (
-                  <h2>{content.content[0].value}</h2>
-                )}
-                {content.nodeType === 'heading-3' && (
-                  <h3>{content.content[0].value}</h3>
-                )}
-                {content.nodeType === 'heading-4' && (
-                  <h4>{content.content[0].value}</h4>
-                )}
-                {content.nodeType === 'ordered-list' && (
-                  <ol>
-                    {content.content.map((liContent) => (
-                      <li key={liContent}>
-                        {liContent.content[0].content[0].value && (
-                          <span>{liContent.content[0].content[0].value}</span>
-                        )}
-                        {liContent.content[0].content[1].value && (
-                          <span>{liContent.content[0].content[1].value}</span>
-                        )}
-                      </li>
-                    ))}
-                  </ol>
-                )}
-                {content.nodeType === 'unordered-list' && (
-                  <ul>
-                    {content.content.map((liContent) => (
-                      <li key={liContent}>
-                        {liContent.content[0].content[0].value && (
-                          <span>{liContent.content[0].content[0].value}</span>
-                        )}
-                        {liContent.content[0].content[1].value && (
-                          <span>{liContent.content[0].content[1].value}</span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </>
-            ))}
+            {documentToReactComponents(blog.contentBlog.json, options)}
+            <Link href="/blog" className={styles.returnToBlog}>
+              <span className={'bg-ct backIcon'}></span> Todos los artículos{' '}
+            </Link>
           </div>
         </article>
+
         <Contact audiowide={audiowide} />
 
         <Footer audiowide={audiowide} />

@@ -269,6 +269,35 @@ main.container {
   font-size: 22px;
 }
 
+.hljs-tag {
+  color: #6b6b6b;
+}
+.hljs-name {
+  color: #5162ff;
+}
+
+.hljs-attr {
+  color: #1373c1;
+}
+
+.hljs-string {
+  color: #c14d13;
+}
+
+.backIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  background-image: url(/images/back.png);
+  display: inline-block;
+}
+
+.bg-ct {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

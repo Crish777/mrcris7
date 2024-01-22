@@ -6,22 +6,42 @@ import { Audiowide } from '@next/font/google';
 import Head from 'next/head';
 import Loader from '../components/Loader';
 import { useEffect, useState } from 'react';
-import { createClient } from 'contentful';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const amaticsc = Amatic_SC({ weight: ['400', '700'], subsets: ['latin'] });
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.SPACE_ID,
-    accessToken: process.env.ACCES_TOKEN,
-  });
-
-  const res = await client.getEntries({ content_type: 'blog' });
+export async function getServerSideProps() {
+  const query = `query {
+    blogCollection{
+      items{
+        sys{
+          id
+        }
+        titleBlog
+        miniatura{
+          url
+        }
+        summary
+      }
+    }
+    }`;
+  const response = await fetch(
+    `https://graphql.contentful.com/content/v1/spaces/${process.env.SPACE_ID}/environments/master`,
+    {
+      headers: {
+        'Authorization': `Bearer ${process.env.ACCES_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ query }),
+    }
+  );
+  const body = await response.json();
+  const blogs = body.data.blogCollection.items;
 
   return {
     props: {
-      blogs: res.items,
+      blogs,
     },
   };
 }
@@ -49,7 +69,7 @@ const Blog = ({ blogs }) => {
         data-scroll-section>
         <div className={`container ${styles.containerBlog}`}>
           {blogs.map((blog) => (
-            <BlogCard key={blog.id} amaticsc={amaticsc} data={blog} />
+            <BlogCard key={blog.sys.id} amaticsc={amaticsc} data={blog} />
           ))}
         </div>
         <Footer audiowide={audiowide} />

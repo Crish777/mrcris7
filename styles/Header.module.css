@@ -34,11 +34,8 @@
   width: 3.5em;
   height: 3.5em;
   border-radius: 0.5em;
-  background: #000013;
-  border: 1px solid #000013;
   transition: all 0.3s;
   cursor: pointer;
-  box-shadow: 6px 6px 12px #000013, -6px -6px 12px #000013;
 }
 
 .menuButton:hover {
