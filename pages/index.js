@@ -61,7 +61,6 @@ export async function getServerSideProps() {
 export default function Home({ projects, isError }) {
   const [loader, setLoader] = useState(true);
   const [thanksView, setThanksView] = useState(false);
-  console.log(projects);
 
   useEffect(() => {
     if (projects || projects === undefined) {
