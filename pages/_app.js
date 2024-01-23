@@ -38,6 +38,12 @@ export default function App({ Component, pageProps }) {
                     gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
                 `}
       </Script>
+      <Script
+        id="adsbygoogle-init"
+        strategy="afterInteractive"
+        crossOrigin="anonymous"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5078516624755088"
+      />
       <RLSProvider
         options={{
           smooth: true,
