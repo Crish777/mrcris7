@@ -31,14 +31,17 @@ const Hero = ({ amaticsc, audiowide, setIsPopUpOpen }) => {
               <a
                 href="https://www.linkedin.com/in/cristhian-herrera-desarrollador-front-end/"
                 target="_blank"
-                className={`${styles.socialIcon} linkedinIcon bg-ct`}></a>
+                className={`${styles.socialIcon} linkedinIcon bg-ct`}
+                rel="noreferrer"></a>
               <a
                 href="https://github.com/Crish777/"
                 target="_blank"
-                className={`${styles.socialIcon} githubIcon bg-ct`}></a>
+                className={`${styles.socialIcon} githubIcon bg-ct`}
+                rel="noreferrer"></a>
               <a
                 href="/images/cv.pdf"
                 target="_blank"
+                rel="noreferrer"
                 className={`${styles.socialIcon} curriculumIcon bg-ct`}></a>
             </nav>
           </div>
