@@ -373,6 +373,28 @@ main.container {
   font-weight: bold;
 }
 
+.linkedinIcon {
+  background-image: url(/images/linkedin.png);
+}
+.githubIcon {
+  background-image: url(/images/github.png);
+}
+.curriculumIcon {
+  background-image: url(/images/cv.png);
+}
+
+.flex {
+  display: flex;
+}
+
+.j-s {
+  justify-content: flex-start;
+}
+
+.a-c {
+  align-items: center;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

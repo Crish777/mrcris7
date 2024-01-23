@@ -1,15 +1,27 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from '../styles/Contact.module.css';
-// import Ukiyo from 'ukiyojs';
 
-export const Contact = ({ audiowide, setLoader, setThanksView }) => {
+export const Contact = ({
+  audiowide,
+  setLoader,
+  setThanksView,
+  isPopUp,
+  setIsPopUpOpen,
+}) => {
+  const [animatePopUp, setAnimatePopUp] = useState(false);
   const section = useRef(null);
   const form = useRef(null);
   const name = useRef(null);
   const phone = useRef(null);
   const email = useRef(null);
   const textarea = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimatePopUp(true);
+    }, 100);
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -33,6 +45,12 @@ export const Contact = ({ audiowide, setLoader, setThanksView }) => {
             name.current.value = '';
             setTimeout(() => {
               setLoader(false);
+              setTimeout(() => {
+                setAnimatePopUp(false);
+                setTimeout(() => {
+                  setIsPopUpOpen(false);
+                }, 600);
+              }, 500);
             }, 1000);
           },
           (error) => {
@@ -42,8 +60,23 @@ export const Contact = ({ audiowide, setLoader, setThanksView }) => {
     }, 1000);
   };
 
+  const closePopUp = () => {
+    setAnimatePopUp(false);
+    setTimeout(() => {
+      setIsPopUpOpen(false);
+    }, 600);
+  };
+
   return (
-    <section className={styles['contact-section']}>
+    <section
+      className={`${styles['contact-section']} ${
+        isPopUp ? styles.popUpContact : ''
+      } ${animatePopUp ? styles.active : ''}`}>
+      {isPopUp && (
+        <div
+          onClick={() => closePopUp()}
+          className={`${styles.closeContactPopUp} bg-ct`}></div>
+      )}
       <div
         className={styles.bgImage}
         style={{ 'backgroundImage': 'url(/images/city.jpg)' }}

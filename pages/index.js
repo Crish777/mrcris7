@@ -61,6 +61,7 @@ export async function getServerSideProps() {
 export default function Home({ projects, isError }) {
   const [loader, setLoader] = useState(true);
   const [thanksView, setThanksView] = useState(false);
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
   useEffect(() => {
     if (projects || projects === undefined) {
@@ -83,7 +84,13 @@ export default function Home({ projects, isError }) {
       </Head>
       <Loader active={loader ? 'show' : 'hide'} thanks={thanksView} />
       <div data-scroll-section>
-        <Hero amaticsc={amaticsc} setLoader={setLoader} />
+        <Hero
+          audiowide={audiowide}
+          amaticsc={amaticsc}
+          setLoader={setLoader}
+          setThanksView={setThanksView}
+          setIsPopUpOpen={setIsPopUpOpen}
+        />
         <Banner />
         <Briefcase audiowide={audiowide} projects={projects} />
         <About audiowide={audiowide} />
@@ -94,6 +101,15 @@ export default function Home({ projects, isError }) {
         />
         <Footer audiowide={audiowide} />
       </div>
+      {isPopUpOpen && (
+        <Contact
+          audiowide={audiowide}
+          setLoader={setLoader}
+          setThanksView={setThanksView}
+          isPopUp={isPopUpOpen}
+          setIsPopUpOpen={setIsPopUpOpen}
+        />
+      )}
     </>
   );
 }

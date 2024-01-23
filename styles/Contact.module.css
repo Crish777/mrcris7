@@ -8,6 +8,25 @@
   margin-bottom: 50px;
 }
 
+.popUpContact {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  z-index: 6;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out, top 0s ease-in-out 0.5s;
+}
+
+.popUpContact.active {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  transition: all 0.5s ease-in-out, top 0s ease-in-out 0s;
+}
+
 .bgImage {
   position: absolute;
   top: 0;
@@ -51,6 +70,15 @@
   z-index: 3;
 }
 
+.popUpContact .container-contact {
+  justify-content: center;
+  height: 100%;
+  overflow-y: auto;
+  padding: 50px 0 0;
+  align-items: flex-start;
+  align-content: center;
+}
+
 .title-contact {
   font-size: 100px;
   text-transform: uppercase;
@@ -63,6 +91,10 @@
   cursor: default;
 }
 
+.popUpContact .title-contact {
+  margin-right: 0;
+}
+
 .site-form {
   width: 40%;
   display: flex;
@@ -72,6 +104,10 @@
   background-color: #00000095;
   box-shadow: 0px 0px 5px #000000, 0px 0px 50px #000000, 0px 0px 100px #000000;
   margin-top: 50px;
+}
+
+.popUpContact .site-form {
+  width: 60%;
 }
 
 .label-contact {
@@ -118,6 +154,22 @@
   cursor: pointer;
 }
 
+.popUpContact .submit-btn {
+  width: 100%;
+  text-align: center;
+}
+
+.closeContactPopUp {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 4;
+  background-image: url(/images/close.svg);
+}
+
 @media only screen and (max-width: 1300px) {
   .title-contact {
     font-size: 80px;
@@ -147,6 +199,27 @@
     width: 70%;
     margin-top: 50px;
   }
+
+  .popUpContact .site-form {
+    width: 70%;
+  }
+
+  .closeContactPopUp {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+  }
+  .popUpContact .container-contact {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) and (orientation: landscape) {
+  .popUpContact .container-contact{
+    align-content: flex-start;
+  }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -157,5 +230,9 @@
   .site-form {
     width: 100%;
     padding: 25px;
+  }
+
+  .popUpContact .site-form {
+    width: 100%;
   }
 }
