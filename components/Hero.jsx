@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 const Hero = ({ amaticsc, audiowide, setIsPopUpOpen }) => {
   useEffect(() => {
-    const myAtropos = Atropos({
+    Atropos({
       el: '.atropos',
     });
   }, []);

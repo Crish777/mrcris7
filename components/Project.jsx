@@ -27,7 +27,7 @@ const Project = ({ data, audiowide, id }) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth > 1024) {
-        const myAtropos = Atropos({
+        Atropos({
           el: atroposEl.current,
           shadow: false,
           shadowScale: 0,

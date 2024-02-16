@@ -6,13 +6,11 @@ import Ukiyo from 'ukiyojs';
 const About = ({ audiowide }) => {
   const ukiyo = useRef(null);
   useEffect(() => {
-    let instance;
-
     // const destroyUkiyo = () => {
     //   instance.destroy();
     // };
     const createyUkiyo = () => {
-      instance = new Ukiyo(ukiyo.current, {
+      new Ukiyo(ukiyo.current, {
         scale: 1.5,
         speed: 1.5,
         willChange: true,
@@ -55,7 +53,6 @@ const About = ({ audiowide }) => {
             emocionado por seguir creciendo y explorando nuevas tecnologías en
             el campo del desarrollo web.
           </p>
-          
           <p
             className={styles.infoAbout}
             data-aos="fade-left"

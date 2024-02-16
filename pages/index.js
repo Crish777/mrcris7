@@ -69,7 +69,7 @@ export default function Home({ projects, isError }) {
     if (projects || projects === undefined) {
       setTimeout(() => {
         setLoader(false);
-        setTimeout(() => {          
+        setTimeout(() => {
           AOS.init();
         }, 1500);
       }, 2000);

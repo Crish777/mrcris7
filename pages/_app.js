@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }) {
         crossOrigin="anonymous"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5078516624755088"
       />
-      {/*<RLSProvider
+      {/* <RLSProvider
         options={{
           smooth: true,
           smoothMobile: false,
@@ -73,14 +73,14 @@ export default function App({ Component, pageProps }) {
           scroll.scrollTo(0, { duration: 0, disableLerp: true })
         }
         containerRef={containerRef}> */}
-        <main
-          className={`${rasa.className} siteMain ${'container'}`}
-          data-scroll-container
-          ref={containerRef}>
-          <Header audiowide={audiowide} />
-          <Component {...pageProps} />
-          <SpeedInsights />
-        </main>
+      <main
+        className={`${rasa.className} siteMain ${'container'}`}
+        data-scroll-container
+        ref={containerRef}>
+        <Header audiowide={audiowide} />
+        <Component {...pageProps} />
+        <SpeedInsights />
+      </main>
       {/* </RLSProvider> */}
       <Analytics />
     </>

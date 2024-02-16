@@ -10,7 +10,7 @@ const BlogCard = ({ amaticsc, data }) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth > 1024) {
-        const myAtropos = Atropos({
+        Atropos({
           el: atroposEl.current,
           shadow: false,
           shadowScale: 0,
