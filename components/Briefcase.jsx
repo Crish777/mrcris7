@@ -8,16 +8,18 @@ const Briefcase = ({ audiowide, projects }) => {
         <div className={`${styles.infoWork}`}>
           <div className={`${styles.innerInfoWork}`}>
             <h2
-              className={`${styles.infoWorkTitle} ${audiowide.className}`}
-              data-scroll
-              data-scroll-direction="horizontal"
-              data-scroll-speed={-1}>
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              className={`${styles.infoWorkTitle} ${audiowide.className}`}>
               Proyectos
             </h2>
           </div>
         </div>
 
-        <div className={`${styles.works}`}>
+        <div
+          className={`${styles.works}`}
+          data-aos="fade-up"
+          data-aos-duration="1500">
           {projects &&
             projects.map((project) => (
               <Project

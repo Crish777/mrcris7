@@ -84,9 +84,8 @@ export const Contact = ({
       <div className={`container ${styles['container-contact']}`}>
         <h2
           className={`${audiowide.className} ${styles['title-contact']}`}
-          data-scroll
-          data-scroll-direction="horizontal"
-          data-scroll-speed={-1.5}>
+          data-aos="fade-up"
+          data-aos-duration="1500">
           Contáctame!
         </h2>
 
@@ -94,9 +93,8 @@ export const Contact = ({
           className={styles['site-form']}
           ref={form}
           onSubmit={sendEmail}
-          data-scroll
-          data-scroll-direction="horizontal"
-          data-scroll-speed={1.5}>
+          data-aos="fade-left"
+          data-aos-duration="1600">
           <label htmlFor="user_name" className={styles['label-contact']}>
             <input
               type="text"

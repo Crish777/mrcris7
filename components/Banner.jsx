@@ -4,12 +4,11 @@ import styles from '../styles/Banner.module.css';
 const Banner = () => {
   return (
     <section className={`${styles.bannerAnimated} sectionPage`}>
-      <div
-        className={`container ${styles.containerBanner}`}
-        data-scroll
-        data-scroll-direction="horizontal"
-        data-scroll-speed="4">
-        <div className={styles.skill}>
+      <div className={`container ${styles.containerBanner}`}>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="750"
+          className={styles.skill}>
           <Image
             src="/images/html-5.png"
             width={70}
@@ -18,7 +17,10 @@ const Banner = () => {
             title="HTML"
           />
         </div>
-        <div className={styles.skill}>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className={styles.skill}>
           <Image
             src="/images/css.png"
             width={70}
@@ -27,7 +29,10 @@ const Banner = () => {
             title="CSS"
           />
         </div>
-        <div className={styles.skill}>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1250"
+          className={styles.skill}>
           <Image
             src="/images/js.png"
             width={70}
@@ -36,7 +41,10 @@ const Banner = () => {
             title="Javascript"
           />
         </div>
-        <div className={styles.skill}>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          className={styles.skill}>
           <Image
             src="/images/react.png"
             width={70}
@@ -45,7 +53,10 @@ const Banner = () => {
             title="React"
           />
         </div>
-        <div className={styles.skill}>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1750"
+          className={styles.skill}>
           <Image
             src="/images/next.png"
             width={70}
@@ -54,7 +65,10 @@ const Banner = () => {
             title="Next.js"
           />
         </div>
-        <div className={styles.skill}>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="2000"
+          className={styles.skill}>
           <Image
             src="/images/github.png"
             width={70}
