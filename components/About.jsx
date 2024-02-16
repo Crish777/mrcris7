@@ -25,25 +25,22 @@ const About = ({ audiowide }) => {
     <section className={`${styles.aboutSection} sectionPage`} id="about">
       <div className={`container ${styles.aboutContainer}`}>
         <h2
-          className={`${styles.aboutTitle} ${audiowide.className}`}
-          data-scroll
-          data-scroll-direction="horizontal"
-          data-scroll-speed={-1}>
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          className={`${styles.aboutTitle} ${audiowide.className}`}>
           Sobre Mi
         </h2>
         <div
-          className={styles.aboutImg}
-          data-scroll
-          data-scroll-direction="vertical"
-          data-scroll-speed={3}>
+          data-aos="fade-right"
+          data-aos-duration="1700"
+          className={styles.aboutImg}>
           <div className={styles.innerImg} ref={ukiyo}></div>
         </div>
         <div className={styles.aboutText}>
           <p
             className={styles.infoAbout}
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-speed="-1">
+            data-aos="fade-left"
+            data-aos-duration="1500">
             Comencé mi camino en el mundo digital aprendiendo sobre marketing,
             pero fue durante mis estudios de marketing cuando descubrí mi
             verdadera pasión: la creación de sitios web. Decidí profundizar en
@@ -58,11 +55,11 @@ const About = ({ audiowide }) => {
             emocionado por seguir creciendo y explorando nuevas tecnologías en
             el campo del desarrollo web.
           </p>
+          
           <p
             className={styles.infoAbout}
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-speed="1">
+            data-aos="fade-left"
+            data-aos-duration="1700">
             Además de mi pasión por el desarrollo web, también ofrezco mis
             servicios a aquellos que buscan crear o mejorar su presencia en
             línea. Me encanta ayudar a las empresas a alcanzar sus objetivos a

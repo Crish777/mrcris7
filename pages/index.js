@@ -9,6 +9,8 @@ import Loader from '../components/Loader';
 import { Amatic_SC } from '@next/font/google';
 import { Audiowide } from '@next/font/google';
 import { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const amaticsc = Amatic_SC({ weight: ['400', '700'], subsets: ['latin'] });
@@ -67,6 +69,9 @@ export default function Home({ projects, isError }) {
     if (projects || projects === undefined) {
       setTimeout(() => {
         setLoader(false);
+        setTimeout(() => {          
+          AOS.init();
+        }, 1500);
       }, 2000);
     }
   }, [projects]);

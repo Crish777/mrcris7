@@ -19,9 +19,16 @@ const Hero = ({ amaticsc, audiowide, setIsPopUpOpen }) => {
             data-scroll-speed="-2"
             className={styles.infoHero}>
             <h1 className={`${styles.principalHero} ${amaticsc.className}`}>
-              <span>Cristhian Herrera</span> <span>desarrollador frontend</span>
+              <span data-aos="fade-up" data-aos-duration="1250">
+                Cristhian Herrera
+              </span>{' '}
+              <span data-aos="fade-up" data-aos-duration="1500">
+                desarrollador frontend
+              </span>
             </h1>
             <button
+              data-aos="fade-up"
+              data-aos-duration="1800"
               onClick={() => setIsPopUpOpen(true)}
               className={`${styles['submit-btn']} ${audiowide.className}`}>
               Contactar
@@ -29,16 +36,22 @@ const Hero = ({ amaticsc, audiowide, setIsPopUpOpen }) => {
 
             <nav className={`${styles.socialIcons} flex j-s a-c wrap`}>
               <a
+                data-aos="fade-up"
+                data-aos-duration="1500"
                 href="https://www.linkedin.com/in/cristhian-herrera-desarrollador-front-end/"
                 target="_blank"
                 className={`${styles.socialIcon} linkedinIcon bg-ct`}
                 rel="noreferrer"></a>
               <a
+                data-aos="fade-up"
+                data-aos-duration="1750"
                 href="https://github.com/Crish777/"
                 target="_blank"
                 className={`${styles.socialIcon} githubIcon bg-ct`}
                 rel="noreferrer"></a>
               <a
+                data-aos="fade-up"
+                data-aos-duration="2000"
                 href="/images/cv.pdf"
                 target="_blank"
                 rel="noreferrer"
@@ -47,10 +60,9 @@ const Hero = ({ amaticsc, audiowide, setIsPopUpOpen }) => {
           </div>
 
           <div
-            className={styles.imgHero}
-            data-scroll
-            data-scroll-direction="vertical"
-            data-scroll-speed="-3">
+            data-aos="fade-left"
+            data-aos-duration="1700"
+            className={styles.imgHero}>
             <div className={styles.beforeImg}></div>
             <div className={styles.imgHeroInner}></div>
           </div>

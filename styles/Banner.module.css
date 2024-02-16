@@ -1,10 +1,9 @@
 .bannerAnimated {
-  width: 105%;
-  margin-left: -2.5%;
+  width: 100%;
   padding: 70px;
   background-color: #333138;
-  transform: skew(10deg, 10deg);
   margin-bottom: 170px;
+  overflow: hidden;
 }
 
 .containerBanner {
@@ -15,14 +14,14 @@
 }
 
 .skill {
-  filter: grayscale(100%) contrast(200%) drop-shadow(0px 10px 10px black);
+  /* filter: grayscale(0%) contrast(200%) drop-shadow(0px 10px 10px black); */
   transform: scale(1);
   transition: all 0.4s ease;
 }
 
 .skill:hover {
   transform: scale(1.1);
-  filter: grayscale(0%) contrast(100%) drop-shadow(0px 0px 0px black);
+  /* filter: grayscale(0%) contrast(100%) drop-shadow(0px 0px 0px black); */
 }
 
 @media only screen and (max-width: 1024px) {

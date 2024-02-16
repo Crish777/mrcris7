@@ -1,8 +1,8 @@
 import { Rasa } from '@next/font/google';
-import { LocomotiveScrollProvider as RLSProvider } from 'react-locomotive-scroll';
+// import { LocomotiveScrollProvider as RLSProvider } from 'react-locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import '../styles/globals.css';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import { Audiowide } from '@next/font/google';
 import { Analytics } from '@vercel/analytics/react';
@@ -16,7 +16,6 @@ const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const rasa = Rasa({ weight: '400', subsets: ['latin'] });
 
 export default function App({ Component, pageProps }) {
-  const { asPath } = useRouter();
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -38,14 +37,14 @@ export default function App({ Component, pageProps }) {
                     gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
                 `}
       </Script>
-      <RLSProvider
+      {/* <RLSProvider
         options={{
           smooth: true,
           smoothMobile: false,
           resetNativeScroll: true,
-          lerp: 0.05,
-          multiplier: 2,
-          firefoxMultiplier: 2,
+          lerp: 0.08,
+          multiplier: 1,
+          firefoxMultiplier: 1,
           touchMultiplier: 0.1,
           smartPhone: {
             smooth: false,
@@ -67,16 +66,16 @@ export default function App({ Component, pageProps }) {
         onLocationChange={(scroll) =>
           scroll.scrollTo(0, { duration: 0, disableLerp: true })
         }
-        containerRef={containerRef}>
+        containerRef={containerRef}> */}
         <main
-          className={`${rasa.className} ${'container'}`}
+          className={`${rasa.className} siteMain ${'container'}`}
           data-scroll-container
           ref={containerRef}>
           <Header audiowide={audiowide} />
           <Component {...pageProps} />
           <SpeedInsights />
         </main>
-      </RLSProvider>
+      {/* </RLSProvider> */}
       <Analytics />
     </>
   );
