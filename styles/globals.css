@@ -410,6 +410,12 @@ main.container {
   align-items: center;
 }
 
+@media (width <= 768px) {
+  .subtitleSection {
+    font-size: 40px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
