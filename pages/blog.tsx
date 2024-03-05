@@ -6,6 +6,7 @@ import { Audiowide } from '@next/font/google';
 import Head from 'next/head';
 import Loader from '../components/Loader';
 import { useEffect, useState } from 'react';
+import { BlogsProps } from 'interfaces/BlogInterfaces';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const amaticsc = Amatic_SC({ weight: ['400', '700'], subsets: ['latin'] });
@@ -46,7 +47,7 @@ export async function getServerSideProps() {
   };
 }
 
-const Blog = ({ blogs }) => {
+const Blog = ({ blogs }: BlogsProps) => {
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     if (blogs) {

@@ -1,9 +1,17 @@
 import Link from 'next/link';
 import styles from '../styles/Nav.module.css';
-import { useEffect } from 'react';
+import { SetStateAction, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { NextFont } from '@next/font/dist/types';
+import { Dispatch } from 'react';
 
-const Nav = ({ audiowide, animate, setAnimate }) => {
+interface NavProps {
+  audiowide: NextFont;
+  animate: boolean;
+  setAnimate: Dispatch<SetStateAction<boolean>>;
+}
+
+const Nav = ({ audiowide, animate, setAnimate }: NavProps) => {
   const router = useRouter();
   const { pathname } = router;
 

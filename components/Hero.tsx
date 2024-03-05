@@ -1,9 +1,16 @@
 import styles from '../styles/Hero.module.css';
 import 'atropos/css';
 import Atropos from 'atropos';
-import { useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
+import { NextFont } from '@next/font/dist/types';
 
-const Hero = ({ amaticsc, audiowide, setIsPopUpOpen }) => {
+interface HeroProps {
+  amaticsc: NextFont;
+  audiowide: NextFont;
+  setIsPopUpOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+const Hero = ({ amaticsc, audiowide, setIsPopUpOpen }: HeroProps) => {
   useEffect(() => {
     Atropos({
       el: '.atropos',

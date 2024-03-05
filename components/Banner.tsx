@@ -43,6 +43,18 @@ const Banner = () => {
         </div>
         <div
           data-aos="fade-up"
+          data-aos-duration="1250"
+          className={styles.skill}>
+          <Image
+            src="/images/typescript.png"
+            width={70}
+            height={70}
+            alt="Typescript logo"
+            title="Typescript"
+          />
+        </div>
+        <div
+          data-aos="fade-up"
           data-aos-duration="1500"
           className={styles.skill}>
           <Image

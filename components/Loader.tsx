@@ -1,7 +1,12 @@
 import React from 'react';
 import styles from '../styles/Loader.module.css';
 
-const Loader = ({ active, thanks }) => {
+interface LoaderProps {
+  active: string;
+  thanks: boolean;
+}
+
+const Loader = ({ active, thanks }: LoaderProps) => {
   return (
     <section
       className={` ${styles[active]} ${styles.loaderWrapper} ${

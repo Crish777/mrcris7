@@ -1,23 +1,21 @@
 import { Rasa } from '@next/font/google';
-// import { LocomotiveScrollProvider as RLSProvider } from 'react-locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import '../styles/globals.css';
-// import { useRouter } from 'next/router';
-import Header from '../components/Header';
 import { Audiowide } from '@next/font/google';
-import { Analytics } from '@vercel/analytics/react';
 import { useEffect, useRef } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
 import { hotjar } from 'react-hotjar';
 import Script from 'next/script';
+import { AppProps } from 'next/app';
+import Header from 'components/Header';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
 const rasa = Rasa({ weight: '400', subsets: ['latin'] });
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   const containerRef = useRef(null);
-
   useEffect(() => {
     hotjar.initialize(3826559, 6);
   }, []);

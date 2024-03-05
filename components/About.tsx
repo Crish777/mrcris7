@@ -2,13 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import styles from '../styles/About.module.css';
 
 import Ukiyo from 'ukiyojs';
+import { NextFont } from '@next/font/dist/types';
 
-const About = ({ audiowide }) => {
+interface AboutProps {
+  audiowide: NextFont;
+}
+
+const About = ({ audiowide }: AboutProps) => {
   const ukiyo = useRef(null);
   useEffect(() => {
-    // const destroyUkiyo = () => {
-    //   instance.destroy();
-    // };
     const createyUkiyo = () => {
       new Ukiyo(ukiyo.current, {
         scale: 1.5,

@@ -1,45 +1,61 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import styles from '../styles/Header.module.css';
 import Nav from './Nav';
 import { usePathname } from 'next/navigation';
+import { NextFont } from '@next/font/dist/types';
 
-const Header = ({ audiowide }) => {
+interface HeaderProps {
+  audiowide: NextFont;
+}
+
+const Header = ({ audiowide }: HeaderProps) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [animate, setAnimate] = useState(false);
   const [disablePointer, setDisablePointer] = useState(false);
-  const header = useRef(null);
+  const header = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     setOpenMenu(false);
     setAnimate(false);
-    header.current.classList.remove(styles.activeHeader);
-    document.body.style.overflow = null;
+    if (header.current) {
+      header.current.classList.remove(styles.activeHeader);
+    }
+
+    const body = document.body;
+    if (body) {
+      body.style.overflow = 'unset';
+    }
   }, [pathname]);
 
-  const toggleMenu = (e) => {
-    header.current.classList.toggle(styles.activeHeader);
+  const toggleMenu = (e: ChangeEvent<HTMLInputElement>) => {
+    if (header.current) {
+      header.current.classList.toggle(styles.activeHeader);
+    }
     setDisablePointer(true);
-    e.target.style.pointerEvents = 'none';
+
+    if (e.target) {
+      e.target.style.pointerEvents = 'none';
+    }
     if (openMenu) {
       setAnimate(false);
       setTimeout(() => {
         setOpenMenu(false);
-        e.target.style.pointerEvents = null;
+        e.target.style.pointerEvents = 'unset';
         setDisablePointer(false);
       }, 1100);
-      document.body.style.overflow = null;
+      document.body.style.overflow = 'unset';
       return;
     }
     setOpenMenu(true);
     document.body.style.overflow = 'hidden';
     setTimeout(() => {
       setAnimate(true);
-      e.target.style.pointerEvents = null;
+      e.target.style.pointerEvents = 'unset';
       setDisablePointer(false);
-    }, 50);
+    }, 0);
   };
 
   return (

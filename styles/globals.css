@@ -108,6 +108,7 @@ section {
 }
 body {
   line-height: 1;
+  overflow-x: hidden !important;
 }
 section {
   overflow: hidden;

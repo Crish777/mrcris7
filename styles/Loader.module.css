@@ -99,4 +99,9 @@
     max-width: 80%;
     font-size: 45px;
   }
+
+  .loaderWrapper {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
 }

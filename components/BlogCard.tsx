@@ -4,14 +4,21 @@ import styles from '../styles/BlogCard.module.css';
 import Atropos from 'atropos';
 import 'atropos/css';
 import Link from 'next/link';
+import { NextFont } from '@next/font/dist/types';
+import { Blogs } from 'interfaces/BlogInterfaces';
 
-const BlogCard = ({ amaticsc, data }) => {
+interface BlogCardProps {
+  amaticsc: NextFont;
+  data: Blogs;
+}
+
+const BlogCard = ({ amaticsc, data }: BlogCardProps) => {
   const atroposEl = useRef(null);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth > 1024) {
         Atropos({
-          el: atroposEl.current,
+          el: atroposEl.current ? atroposEl.current : undefined,
           shadow: false,
           shadowScale: 0,
           shadowOffset: 0,

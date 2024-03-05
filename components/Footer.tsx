@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import styles from '../styles/Footer.module.css';
+import { NextFont } from '@next/font/dist/types';
 
-const Footer = ({ audiowide }) => {
+interface FooterProps {
+  audiowide: NextFont;
+}
+
+const Footer = ({ audiowide }: FooterProps) => {
   return (
     <footer className={`${styles.footerSection} sectionPage`}>
       <div className={`${styles.containerFooter} container`}>

@@ -1,7 +1,14 @@
+import { ProjectsMrCris7 } from 'interfaces/HomeInterfaces';
 import styles from '../styles/Briefcase.module.css';
 import Project from './Project';
+import { NextFont } from '@next/font/dist/types';
 
-const Briefcase = ({ audiowide, projects }) => {
+interface BriefcaseProps {
+  audiowide: NextFont;
+  projects: ProjectsMrCris7[];
+}
+
+const Briefcase = ({ audiowide, projects }: BriefcaseProps) => {
   return (
     <section className={styles.briefcase} id="briefcase">
       <div className={`container ${styles.briefcaseContainer}`}>
@@ -24,7 +31,6 @@ const Briefcase = ({ audiowide, projects }) => {
             projects.map((project) => (
               <Project
                 key={project.sys.id}
-                id={project.sys.id}
                 data={project}
                 audiowide={audiowide}
               />

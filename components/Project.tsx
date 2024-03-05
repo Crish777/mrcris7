@@ -3,15 +3,22 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Atropos from 'atropos';
 import styles from '../styles/Project.module.css';
 import 'atropos/css';
+import { ProjectsMrCris7 } from 'interfaces/HomeInterfaces';
+import { NextFont } from '@next/font/dist/types';
 
-const Project = ({ data, audiowide, id }) => {
+interface ProjectProps {
+  data: ProjectsMrCris7;
+  audiowide: NextFont;
+}
+
+const Project = ({ data, audiowide }: ProjectProps) => {
   const [gif, setGif] = useState(false);
   const [speed, setSpeed] = useState(
     Math.floor(Math.random() * (2 - -1 + 1) + -1)
   );
 
   const videoProject = useCallback(
-    (node) => {
+    (node: HTMLVideoElement) => {
       if (node !== null) {
         if (gif) {
           node.play();
@@ -28,7 +35,7 @@ const Project = ({ data, audiowide, id }) => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth > 1024) {
         Atropos({
-          el: atroposEl.current,
+          el: atroposEl.current ? atroposEl.current : undefined,
           shadow: false,
           shadowScale: 0,
           shadowOffset: 0,
@@ -39,7 +46,7 @@ const Project = ({ data, audiowide, id }) => {
   }, []);
   return (
     <div
-      key={id}
+      key={data.name}
       className={`${styles.work} atropos ${gif ? styles.showgif : ''}`}
       ref={atroposEl}
       onMouseEnter={() => {
@@ -79,7 +86,7 @@ const Project = ({ data, audiowide, id }) => {
                   <Image
                     fill
                     alt=""
-                    src={`${data.projectMediaCollection[0].fields.file.url}`}
+                    src={`${data.projectMediaCollection.items[0].url}`}
                   />
                 )}
               </div>

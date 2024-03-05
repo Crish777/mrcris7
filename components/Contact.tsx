@@ -1,21 +1,37 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  Dispatch,
+  SetStateAction,
+  FormEvent,
+} from 'react';
 import emailjs from '@emailjs/browser';
 import styles from '../styles/Contact.module.css';
+import { NextFont } from '@next/font/dist/types';
+
+interface ContactProps {
+  audiowide: NextFont;
+  setLoader: Dispatch<SetStateAction<boolean>>;
+  setThanksView: Dispatch<SetStateAction<boolean>>;
+  setIsPopUpOpen?: Dispatch<SetStateAction<boolean>> | null;
+  isPopUp?: boolean | null;
+}
 
 export const Contact = ({
   audiowide,
   setLoader,
   setThanksView,
-  isPopUp,
   setIsPopUpOpen,
-}) => {
+  isPopUp,
+}: ContactProps) => {
   const [animatePopUp, setAnimatePopUp] = useState(false);
-  const section = useRef(null);
-  const form = useRef(null);
-  const name = useRef(null);
-  const phone = useRef(null);
-  const email = useRef(null);
-  const textarea = useRef(null);
+  const section = useRef<HTMLDivElement>(null);
+  const form = useRef<HTMLFormElement>(null);
+  const name = useRef<HTMLInputElement>(null);
+  const phone = useRef<HTMLInputElement>(null);
+  const email = useRef<HTMLInputElement>(null);
+  const textarea = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,12 +39,21 @@ export const Contact = ({
     }, 100);
   }, []);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoader(true);
     setThanksView(true);
 
     setTimeout(() => {
+      if (
+        !textarea.current ||
+        !name.current ||
+        !phone.current ||
+        !email.current ||
+        !form.current
+      ) {
+        return;
+      }
       textarea.current.value = `-------Nombre: ${name.current.value} --------Mensaje: ${textarea.current.value} ----Teléfono: ${phone.current.value} ----- Email: ${email.current.value}----`;
       emailjs
         .sendForm(
@@ -39,6 +64,15 @@ export const Contact = ({
         )
         .then(
           () => {
+            if (
+              !textarea.current ||
+              !name.current ||
+              !phone.current ||
+              !email.current ||
+              !form.current
+            ) {
+              return;
+            }
             textarea.current.value = '';
             phone.current.value = '';
             email.current.value = '';
@@ -48,7 +82,9 @@ export const Contact = ({
               setTimeout(() => {
                 setAnimatePopUp(false);
                 setTimeout(() => {
-                  setIsPopUpOpen(false);
+                  if (setIsPopUpOpen) {
+                    setIsPopUpOpen(false);
+                  }
                 }, 600);
               }, 500);
             }, 1000);
@@ -63,7 +99,9 @@ export const Contact = ({
   const closePopUp = () => {
     setAnimatePopUp(false);
     setTimeout(() => {
-      setIsPopUpOpen(false);
+      if (setIsPopUpOpen) {
+        setIsPopUpOpen(false);
+      }
     }, 600);
   };
 

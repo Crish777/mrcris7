@@ -1,6 +1,6 @@
 .bannerAnimated {
   width: 100%;
-  padding: 70px;
+  padding: 20px 70px;
   background-color: #333138;
   margin-bottom: 170px;
   overflow: hidden;
@@ -9,12 +9,18 @@
 .containerBanner {
   width: 90%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .skill {
   /* filter: grayscale(0%) contrast(200%) drop-shadow(0px 10px 10px black); */
+  width: 20%;
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: scale(1);
   transition: all 0.4s ease;
 }
@@ -31,6 +37,11 @@
     transform: none;
     margin: 0;
   }
+
+  .skill {
+    width: 33.333333%;
+    margin: 30px 0;
+  }
 }
 
 /* Tablet */
@@ -42,7 +53,11 @@
 
   .containerBanner {
     width: 100%;
-    gap: 30px;
+    gap: 30px 0;
     flex-wrap: wrap;
+  }
+
+  .skill {
+    margin: 0px 0;
   }
 }

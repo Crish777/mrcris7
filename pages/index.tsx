@@ -11,6 +11,7 @@ import { Audiowide } from '@next/font/google';
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { HomeProps } from 'interfaces/HomeInterfaces';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const amaticsc = Amatic_SC({ weight: ['400', '700'], subsets: ['latin'] });
@@ -52,7 +53,6 @@ export async function getServerSideProps() {
   );
   const body = await response.json();
   const projects = body.data.projectCollection.items;
-
   return {
     props: {
       projects,
@@ -60,8 +60,8 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Home({ projects, isError }) {
-  const [loader, setLoader] = useState(true);
+export default function Home({ projects, isError }: HomeProps) {
+  const [loader, setLoader] = useState<boolean>(true);
   const [thanksView, setThanksView] = useState(false);
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
@@ -92,8 +92,6 @@ export default function Home({ projects, isError }) {
         <Hero
           audiowide={audiowide}
           amaticsc={amaticsc}
-          setLoader={setLoader}
-          setThanksView={setThanksView}
           setIsPopUpOpen={setIsPopUpOpen}
         />
         <Banner />
@@ -103,6 +101,7 @@ export default function Home({ projects, isError }) {
           audiowide={audiowide}
           setLoader={setLoader}
           setThanksView={setThanksView}
+          isPopUp={false}
         />
         <Footer audiowide={audiowide} />
       </div>
