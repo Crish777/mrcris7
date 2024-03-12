@@ -18,6 +18,8 @@
     "@emailjs/browser": "^3.10.0",
     "@next/font": "13.1.1",
     "@racehub-io/f1-telemetry-client": "^0.2.12",
+    "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^1.0.64",
     "@types/aos": "^3.0.7",
     "@types/react": "^18.2.62",
     "@vercel/analytics": "^1.1.1",
