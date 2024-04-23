@@ -1,0 +1,33 @@
+.infoWorkTitle {
+  color: #fffffa;
+  font-size: 100px;
+  text-align: left;
+}
+
+.contIframeSmall, .contIframe {
+  margin: 0 20px;
+}
+
+.contIframe iframe,
+.contIframeSmall iframe {
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1300px) {
+  .infoWorkTitle {
+    font-size: 80px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .infoWorkTitle {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .infoWorkTitle {
+    font-size: 40px;
+  }
+}

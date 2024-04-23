@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { HomeProps } from 'interfaces/HomeInterfaces';
+import Certificates from 'components/Certificates';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 const amaticsc = Amatic_SC({ weight: ['400', '700'], subsets: ['latin'] });
@@ -95,6 +96,7 @@ export default function Home({ projects, isError }: HomeProps) {
           setIsPopUpOpen={setIsPopUpOpen}
         />
         <Banner />
+        <Certificates audiowide={audiowide} />
         <Briefcase audiowide={audiowide} projects={projects} />
         <About audiowide={audiowide} />
         <Contact
