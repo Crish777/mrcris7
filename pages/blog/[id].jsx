@@ -59,9 +59,7 @@ const DetailBlog = ({ blog }) => {
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     if (blog) {
-      setTimeout(() => {
-        setLoader(false);
-      }, 2000);
+      setLoader(false);
     }
     const images = document.querySelectorAll('.sectionPage img');
     new Ukiyo(images, {
