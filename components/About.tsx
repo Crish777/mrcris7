@@ -35,9 +35,7 @@ const About = ({ audiowide }: AboutProps) => {
           data-aos="fade-right"
           data-aos-duration="1700"
           className={styles.aboutImg}>
-          <div className={styles.innerImg} ref={ukiyo}>
-            <Mac />
-          </div>
+          <div className={styles.innerImg} ref={ukiyo}></div>
         </div>
         <div className={styles.aboutText}>
           <p
