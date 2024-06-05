@@ -51,9 +51,9 @@ const Blog = ({ blogs }: BlogsProps) => {
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     if (blogs) {
-      setTimeout(() => {
-        setLoader(false);
-      }, 2000);
+      // setTimeout(() => {
+      setLoader(false);
+      // }, 0);
     }
   }, [blogs]);
   return (

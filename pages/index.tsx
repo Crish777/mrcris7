@@ -67,12 +67,12 @@ export default function Home({ projects, isError }: HomeProps) {
 
   useEffect(() => {
     if (projects || projects === undefined) {
+      // setTimeout(() => {
+      setLoader(false);
       setTimeout(() => {
-        setLoader(false);
-        setTimeout(() => {
-          AOS.init();
-        }, 1500);
-      }, 2000);
+        AOS.init();
+      }, 1500);
+      // }, 100);
     }
   }, [projects]);
   if (isError) {
