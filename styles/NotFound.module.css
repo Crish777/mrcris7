@@ -1,5 +1,5 @@
 .container-404 {
-  min-height: calc(100vh - 100px);
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +28,7 @@
 }
 
 .right-side-not-found {
-  width: 50%;
+  width: 30%;
   aspect-ratio: 9/16;
   position: relative;
 }
